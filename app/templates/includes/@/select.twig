@@ -1,0 +1,88 @@
+{% set type = "multiple" %}
+{% set name = select.name|default("test") %}
+{% set optionActive = {} %}
+
+{% if select.options.time %}
+    {% set type = "time" %}
+{% elseif select.options.datepicker %}
+    {% set type = "datepicker" %}
+{% elseif select.options.fields %}
+    {% set type = "fields" %}
+{% elseif select.options.options_items.items[0].element.attrs.type == "radio" %}
+    {% set type = "radio" %}
+{% endif %}
+
+{% set break = false %}
+{% for i, item in select.options.options_items.items if not break %}
+    {% if item.element.attrs.checked %}
+        {% set optionActive = item %}
+        {% set break = true %}
+    {% endif %}
+{% endfor %}
+
+{% set isFilled = (optionActive.element and (not optionActive.element.attrs.hidden)) or select.options.datepicker.input.element.attrs.value|default("")|trim %}
+
+<div {% include "@/_default.twig" with {
+        _default: {
+            default_class: "select",
+            class: select.class,
+            params: {
+                style: select.params.style
+            },
+            params_custom: select.params_custom,
+            params_boolean: {
+                "filled": isFilled
+            },
+            data: select.data,
+            attrs: select.attrs,
+            disabled: select.disabled
+        }
+    } %}
+    {{ type }}>
+    <div class="select__content" tabindex="0">
+        {% if select.icon %}
+            {% include "@/icon.twig" with {
+                icon: select.icon|merge({
+                    class: ["select__icon"],
+                    size: "l"
+                })
+            } %}
+        {% endif %}
+
+        {% if select.label %}
+            <div class="select__label">
+                {{ select.label.text }}
+            </div>
+        {% endif %}
+
+        {% if select.attrs.placeholder %}
+            <div class="select__placeholder">{{ select.attrs.placeholder }}</div>
+        {% endif %}
+
+        {% if type == "radio" or type == "time" %}
+            <div class="select__value{% if optionActive.element.attrs.hidden and select.value is empty %} select__value--hidden{% endif %}">
+                {% if not select.value %}
+                    {{ optionActive.text.text|striptags("<b><strong><span>") }}
+                {% else %}
+                    {{ select.value|striptags("<b><strong><span>") }}
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="select__values"></div>
+        {% endif %}
+
+        {% include "@/icon.twig" with {
+            icon: {
+                class: ["select__arrow"],
+                name: "chevron"
+            }
+        } %}
+    </div>
+
+    {% include "@/options.twig" with {
+        options: select.options|merge({
+            type: type,
+            class: ["select__options"]
+        })
+    } %}
+</div>

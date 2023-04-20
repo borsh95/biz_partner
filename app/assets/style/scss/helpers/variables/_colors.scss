@@ -1,0 +1,43 @@
+$colors: (	
+	// Base
+	"base": #3A74BE,
+	"base-light": #95B4DB,
+	"base-lighter": #E1F0FF,
+	"default": #494949 #fff,
+	"default-invert": #fff #1B2B49,
+
+	// Status
+	"black": #000,
+	"white": #fff,
+    "gray-darker": #4F4F4F rgba(255, 255, 255, .98),
+    "gray-dark": #828282 rgba(255, 255, 255, .88),
+    "gray": #BDBDBD rgba(255, 255, 255, .8),
+    "gray-light": #E0E0E0 rgba(255, 255, 255, .7),
+    "gray-lighter": #F2F2F2 rgba(255, 255, 255, .6),
+    "green": #69b54e,
+    "orange": #ff9900,
+	"red": #EB5757 #ec443b,
+    "blue": #3482d4,
+
+	// Other
+	"txt": var(--color-default) rgba(255, 255, 255, 1),
+	"txt-2": var(--color-gray-dark) rgba(255, 255, 255, 1),
+	"border-lightest": #E8ECF2 rgba(255, 255, 255, 0.5),
+	"border": #E0E0E0 rgba(255, 255, 255, 0.6),
+	"border-2": #95B4DB,
+	"bg": #fff #212121,
+	"bg-2": #F6F6F6 #212121,
+	"bg-3": #E2E2E2 #212121,
+	"bg-4": #F3F7FB #212121,
+	"bg-card": #fff #212121,
+	"link": #0f6ecd,
+
+	"focus-inner": #444 #ffffffbf,
+	"focus-outer": rgba(248, 181, 54, 0.7) #ffffff40
+);
+
+:root, * {
+	--op-color: 1;
+}
+
+@include generateСolorSheme($colors);

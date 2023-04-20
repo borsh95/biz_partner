@@ -1,0 +1,142 @@
+@use "sass:string";
+@use "sass:list";
+@use "sass:map";
+
+@mixin media($param_1, $param_2: "max-width") {
+	$i: 0.02;
+
+	@if $param_2 == "min-width" {
+		$i: 0;
+	}
+
+	@if type-of($param_1) != 'number' {
+		$param_1: map-get($breakpoints, #{$param_1})
+	}
+
+	@if type-of($param_2) != 'number' and string.length($param_2) > 5 {
+		@media screen and ($param_2: $param_1 - $i + 'px') {
+			@content;
+		}
+	} @else {
+		@if type-of($param_2) != 'number' {
+			$param_2: map-get($breakpoints, #{$param_2})
+		}
+
+		@media screen and (min-width: $param_1 + 'px') and (max-width: $param_2 - $i + 'px') {
+			@content;
+		}
+	}
+}
+
+@mixin each($iterable) {
+	@each $val_1, $val_2 in $iterable {
+		@content((#{$val_1}, #{$val_2}));
+	}
+}
+
+@mixin iterate_breakpoints($exceptions: (xxl)) {
+	$_breakpoints: $breakpoints;
+
+	@if list.length($exceptions) {
+		@each $break in $exceptions {
+			$_breakpoints: map.remove($_breakpoints, $break);	
+		}
+	}
+
+	@include each($breakpoints) using ($values) {
+		@include media(nth($values, 1)) {
+			@content(nth($values, 1));
+		}
+	}
+}
+
+@mixin iterate_spaces($from: 5xs, $to: 5xl) {
+	$list: 0, 5xs, 4xs, 3xs, xxs, xs, s, m, l, xl, xxl, 3xl, 4xl, 5xl, 6xl, 7xl, 8xl, 9xl;
+
+	@for $i from index($list, $from) through index($list, $to) {
+		@content(nth($list, $i));
+	}
+}
+
+@mixin utilities($utilities) {
+	@each $prop, $unit in $utilities {
+		$property: map-get($unit, property);
+		$values: map-get($unit, values);
+		$responsive: true;
+		$name: $prop;
+		$is_important: true;
+		$after_value: "!important";
+	
+		@if map-has-key($unit, responsive) {
+			$responsive: map-get($unit, responsive);
+		}
+	
+		@if map-has-key($unit, class) {
+			$name: map-get($unit, class);
+		}
+	
+		@if map-has-key($unit, enable-important-utilities) {
+			$is_important: map-get($unit, enable-important-utilities);
+		}
+	
+		@if $is_important != true {
+			$after_value: "";
+		}
+	
+		@if type-of($values) == "map" {
+			@each $postfix, $val in $values {
+				.#{$name}-#{$postfix} {
+					#{$property}: #{$val}#{$after_value};
+				}
+			}
+	
+			@if $responsive == true {
+				@include iterate_breakpoints using ($break) {
+					@each $postfix, $val in $values {
+						.#{$name}-#{$break}-#{$postfix} {
+							#{$property}: #{$val}#{$after_value};
+						}
+					}
+				}
+			}
+		} @else if type-of($values) == "list" or "string" {
+			@each $postfix in $values {
+				.#{$name}-#{$postfix} {
+					#{$property}: #{$postfix}#{$after_value};
+				}
+			}
+	
+			@if $responsive == true {
+				@include iterate_breakpoints using ($break) {
+					@each $postfix in $values {
+						.#{$name}-#{$break}-#{$postfix} {
+							#{$property}: #{$postfix}#{$after_value};
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin colors_to_classes($colors) {
+	@each $nameColor, $valueColor in $colors {
+		.color-#{$nameColor} {
+			color: color(#{$nameColor}) !important;
+		}
+
+		.bgc-#{$nameColor} {
+			background-color: color(#{$nameColor}) !important;
+		}
+	}
+}
+
+@mixin lhCrop($line-height) {
+	&::before {
+		content: '';
+		display: block;
+		height: 0;
+		width: 0;
+		margin-top: calc((1 - #{$line-height}) * 0.5em);
+	}
+}

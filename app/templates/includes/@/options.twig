@@ -1,0 +1,161 @@
+{% set type = options.type|default(options.time ? "time" : (options.options_items.items[0].element.attrs.type != "checkbox" and options.datepicker is not defined ? "radio" : "multiple")) %}
+{% set optionsSearchAjax = options.search.content.input.element.data.ajax|default(false) %}
+{% set countItemsWithoutSearch = 9 %}
+
+<div {% include "@/_default.twig" with {
+        _default: {
+            default_class: "options",
+            class: options.class,
+            params: options.params|default({})|merge({
+                style: options.datepicker is defined ? "datepicker" : (options.time is defined ? "time" : "")
+            }),
+            styles: options.styles,
+            data: options.data|default({})|merge({
+                type: type
+            })
+        }
+    } %}>
+    {% if options.options_items %}
+        <div class="options__content">
+            {% if options.search|default(true) and options.options_items.items|default([])|length > countItemsWithoutSearch or optionsSearchAjax %}
+                {% include "^/field.twig" with {
+                    field: {
+                        class: ["select__options-search", {
+                            "select__options-search--ajax": optionsSearchAjax
+                        }],
+                        content: {
+                            input: {
+                                element: options.search.content.input.element|default({})|merge({
+                                    class: ["options__input-search"],
+                                    attrs: options.search.content.input.element.attrs|default({})|merge({
+                                        "data-search-ajax": optionsSearchAjax
+                                    })
+                                })
+                            }
+                        }
+                    }
+                } %}
+            {% endif %}
+            <div class="options__list">
+                {% include "@/options_items.twig" with {
+                    options_items: options.options_items
+                } %}
+            </div>
+        </div>
+    {% elseif options.fields %}
+        <div class="options__content">
+            <div class="options__item options__item--fields">
+                {% for item in options.fields.items %}
+                    {% if loop.last and not loop.first %}
+                        <span class="field__separator"></span>
+                    {% endif %}
+
+                    {% include "^/field.twig" with {
+                        field: item|merge({
+                            class: {
+                                this: "options__item-field"
+                            }
+                        })
+                    } %}
+                {% endfor %}
+            </div>
+        </div>
+    {% elseif options.datepicker %}
+        <div class="options__content">
+            <div {% include "@/_default.twig" with {
+                _default: {
+                    default_class: "datepicker",
+                    data: options.datepicker.data
+                }
+            } %}></div>
+            {% include "@/input.twig" with {
+                input: options.datepicker.input|default({})|merge({
+                    invisible: true,
+                    element: options.datepicker.input.element|default({})|merge({
+                        class: ["options__input-invisible"],
+                        data: options.datepicker.input.element.data|default({})|merge({
+                            "type-value": "date"
+                        })|merge(options.datepicker.data.range in ["true", true, "1", 1] ? {
+                            range: "true"
+                        } : {}),
+                        attrs: options.datepicker.input.element.attrs|default({})|merge({
+                            type: "checkbox",
+                            checked: options.datepicker.input.element.attrs.value|default("")|trim ? true : false,
+                        })
+                    })
+                })
+            } %}
+        </div>
+    {% elseif options.time %}
+        {% set settings = {
+            min: options.time.min,
+            max: options.time.max,
+            options_hour: {
+                name: options.name ~ "_hour",
+                count: options.time.max|split(":")[0],
+                step: 1
+            },
+            options_minute: {
+                name: options.name ~ "_minute",
+                count: "60",
+                step: options.time.step.minute|default(1)
+            }
+        } %}
+
+        {% set data = data|default({})|merge({
+            disabled: options.time.disabled,
+            min_interval: options.time["min-interval"],
+            max_interval: options.time["max-interval"]
+        }) %}
+
+        {% set data = data|merge(settings) %}
+
+        <div class="options__content">
+            {% for key in ["options_hour", "options_minute"] %}
+                {% set _options = settings[key] %}
+
+                <div class="options__group">
+                    {% for idx in (key == "options_hour" ? options.time.min|split(":")[0] : 0)..(_options.count)
+                        if (idx % _options.step == 0) %}
+                        {% if not (idx == 60) %}
+                            {% set value = idx < 10 ? "0" ~ idx : idx %}
+
+                            {% include "^/field.twig" with {
+                                field: {
+                                    attrs: {
+                                        disabled: key == "options_minute",
+                                    },
+                                    class: ["options__item"],
+                                    content: {
+                                        input: {
+                                            element: {
+                                                attrs: {
+                                                    type: "radio",
+                                                    name: _options.name,
+                                                    value: value
+                                                }
+                                            },
+                                            text: {
+                                                text: value
+                                            }
+                                        }
+                                    }
+                                }
+                            } %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            {% include "@/input.twig" with {
+                input: options.time.input|default({})|merge({
+                    invisible: true,
+                    class: ["select__input-time"],
+                    data: {
+                        settings: data
+                    }
+                })
+            } %}
+        </div>
+    {% endif %}
+</div>

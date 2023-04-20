@@ -1,0 +1,31 @@
+{% if not options_items.empty %}
+    {% for item in options_items.items %}
+        {% if options_items.item.type == "btn" or item.href %}
+            {% include "@/btn.twig" with {
+                btn: item|merge({
+                    class: ["options__item"],
+                    params: {
+                        style: "none"
+                    }
+                })
+            } %}
+        {% else %}
+            {% include "@/input.twig" with {
+                input: item|merge({
+                    active: item.element.attrs.checked|default(false),
+					class: ["options__item"]
+                })
+            } %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <div class="options__item options__item--style_empty{% if options_items.ajax|default(false) %} options__item--ajax{% endif %}" disabled>
+        {{ options_items.empty.text }}
+    </div>
+{% endif %}
+
+{% if options_items.more %}
+    <div class="options__item options__item--style_more{% if options_items.ajax|default(false) %} options__item--ajax{% endif %}">
+        {{ options_items.more.text }}
+    </div>
+{% endif %}

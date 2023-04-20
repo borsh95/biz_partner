@@ -1,0 +1,59 @@
+{% set title = "Иконки" %}
+{% extends "layouts/front.twig" %}
+
+{% block style %}
+
+{% endblock %}
+
+{% block content %}	
+	<div class="container">
+		<div class="row-cols-10 g-5">
+			{% for item in icons %}
+				<div class="f-icon-wrap">
+					{% include "@/icon.twig" with {
+						icon: item
+					} %}
+					<div class="f-icon-wrap__btns btns">		
+						<div class="btns__list">
+							<button data-copy-path>copy</button>			
+							{% if item.hrefSprite %}
+								<button data-sprite="{{item.hrefSprite}}">spt</button>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('click', function(e) {
+			let $target = e.target;
+
+			if ($target.closest('[data-sprite]')) {
+				$target = e.target.closest('[data-sprite]');
+				
+				navigator.clipboard.writeText(`<svg aria-hidden="true">
+						<use xlink:href="${$target.dataset.sprite}"></use>
+					</svg>`);
+
+					UIkit.notification({
+					message: 'Спрайт иконки скопирован',
+					status: 'primary',
+					pos: 'top-right',
+					timeout: 5000
+				});
+			} else if ($target.closest('[data-copy-path]')) {
+				const svg = $target.closest('.f-icon-wrap').querySelector('svg');
+				navigator.clipboard.writeText(svg.outerHTML);
+
+				UIkit.notification({
+					message: 'Код svg иконки скопирован',
+					status: 'primary',
+					pos: 'top-right',
+					timeout: 5000
+				});
+			}
+		});
+	</script>
+{% endblock %}	

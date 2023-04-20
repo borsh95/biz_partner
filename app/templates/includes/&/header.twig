@@ -1,0 +1,74 @@
+<header {% include "@/_default.twig" with {
+	_default: {
+		id: header.id,
+		default_class: "header",
+		class: header.class,
+		params: header.params,
+		params_custom: header.params_custom,
+		data: header.data
+	}
+} %}>
+	<div class="header__container container container--xxl">
+		<div class="header__row">
+			<!-- logo -->
+			<a href="/" class="header__logo logo">
+				<img width="269" height="47" src="./assets/img/logo.png" alt="Logo firmy Biz Partner">
+			</a>
+			<!-- burger -->
+			<div class="header__burger">
+				<div class="header__burger-content">
+					<div class="header__row">
+						<!-- navigaion -->
+						{% include "^/menu.twig" with {
+							menu: {
+								class: ["header__menu"]
+							}|merge(menu|default({}))
+						} %}
+						<div class="header__right">
+							<div class="header__row">
+								<a class="item" href="tel:+48733755322">
+									<span class="item__icon icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/sprite/sprite.svg#phone"></use>
+										</svg>
+									</span>
+									<span class="item__value">+48 733 755 322</span>
+								</a>
+								<div class="item">
+									<div id="lang-trigger" class="item__content">
+										<span class="item__value">EN</span>
+										<span class="item__arrow icon">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+											</svg>
+										</span>
+									</div>
+									<!-- dropdown -->
+									<div class="dropdown dropdown--size_xxs dropdown--width_content" uk-dropdown="toggle: #lang-trigger; mode: hover; pos: bottom-right">
+										<div class="dropdown__body">
+											<div class="d-flex flex-column gy--items_3xs dropdown__content">
+												<a class="link-4" href="#">PL</a>
+												<a class="link-4" href="#">EN</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- toggler burger -->
+			<button class="js-toggle-burger header__toggle-burger btn btn--style_link" aria-expanded="false" aria-controls="header__burger" aria-label="Переключение отображиния мобильного меню"> 
+				<div class="btn__value">Menu</div>
+				<div class="hamburger">
+					<span class="hamburger__inner">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</div>
+			</button>
+		</div>
+	</div>
+</header>

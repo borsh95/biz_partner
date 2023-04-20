@@ -1,0 +1,71 @@
+[data-theme], .theme-default, .theme-dark {
+	color: color('txt');
+	background-color: color('bg');
+  }
+
+html,
+body {
+	font-family: var(--fm-1);
+	font-weight: 400;
+	font-size: #{$fz}px;
+	color: var(--color-txt);
+	background-color: color('bg');
+}
+
+/*--------------------------------Common--------------------------------*/
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left: var(--container-offset-x);
+	padding-right: var(--container-offset-x);
+	width: 100%;
+	max-width: var(--container-width);
+
+	&--xxl {
+		max-width: var(--container-width-xxl);
+	}
+}
+
+.page {
+	&__body {
+		display: flex;
+		flex-direction: column;
+		padding-top: var(--header-height);
+		min-height: 100vh;
+		background-color: color('bg');
+	}
+
+	&__content {
+		padding: rem(40) 0 rem(86);
+		flex-grow: 1;
+
+		@include media(md) {
+			padding: 2.5rem 0 5rem;
+		}
+
+		@include media(sm) {
+			padding: rem(20) 0 4rem;
+		}
+	}
+
+	&__main.container {
+		> * {
+			margin-bottom: rem(48);
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__title {
+		margin-bottom: rem(48);
+	}
+
+	@include media(md) {
+		&__main.container > *,	
+		&__title {
+			margin-bottom: rem(32);
+		}
+	}
+}

@@ -1,0 +1,254 @@
+/*==================== SPACINGS ====================*/
+$module: 4;
+$extreme_index: 104;
+$spacer: 1em;
+
+$spacers: (
+	0: 0,
+	1: $spacer * 0.25,
+	2: $spacer * 0.5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+);
+
+// margins
+$m: (
+	m: "margin",
+	mt: "margin-top",
+	mr: "margin-right",
+	mb: "margin-bottom",
+	ml: "margin-left",
+);
+
+$p: (
+	p: "padding",
+	pt: "padding-top",
+	pr: "padding-right",
+	pb: "padding-bottom",
+	pl: "padding-left",
+);
+
+@mixin spacing($s) {
+	@each $class, $prop in $s {
+		.#{$class}-auto {
+			#{$prop}: auto !important;
+		}
+
+		@if $class == "mt" or $class == "mb" {
+			.#{$class}-0,
+			.my-0 {
+				#{$prop}: 0 !important;
+			}
+		} @else if $class == "ml" or $class == "mr" {
+			.#{$class}-0,
+			.mx-0 {
+				#{$prop}: 0 !important;
+			}
+		} @else if $class == "pt" or $class == "pb" {
+			.#{$class}-0,
+			.py-0 {
+				#{$prop}: 0 !important;
+			}
+		} @else if $class == "pl" or $class == "pr" {
+			.#{$class}-0,
+			.px-0 {
+				#{$prop}: 0 !important;
+			}
+		} @else {
+			.#{$class}-0 {
+				#{$prop}: 0 !important;
+			}
+		}
+
+		@include iterate_spaces() using ($size) {
+			@if $class == "mt" or $class == "mb" {
+				.#{$class}-#{$size},
+				.my-#{$size} {
+					#{$prop}: var(--space-#{$size}) !important;
+				}
+			} @else if $class == "ml" or $class == "mr" {
+				.#{$class}-#{$size},
+				.mx-#{$size} {
+					#{$prop}: var(--space-#{$size}) !important;
+				}
+			} @else if $class == "pt" or $class == "pb" {
+				.#{$class}-#{$size},
+				.py-#{$size} {
+					#{$prop}: var(--space-#{$size}) !important;
+				}
+			} @else if $class == "pl" or $class == "pr" {
+				.#{$class}-#{$size},
+				.px-#{$size} {
+					#{$prop}: var(--space-#{$size}) !important;
+				}
+			} @else {
+				.#{$class}-#{$size} {
+					#{$prop}: var(--space-#{$size}) !important;
+				}
+			}
+		}
+	}
+
+	@include iterate_breakpoints() using ($break) {
+		@each $class, $prop in $s {
+			.#{$class}-#{$break}-auto {
+				#{$prop}: auto !important;
+			}
+			@include iterate_spaces using ($size) {
+				@if $class == "mt" or $class == "mb" {
+					.#{$class}-#{$break}-#{$size},
+					.my-#{$break}-#{$size} {
+						#{$prop}: var(--space-#{$size}) !important;
+					}
+				} @else if $class == "ml" or $class == "mr" {
+					.#{$class}-#{$break}-#{$size},
+					.mx-#{$break}-#{$size} {
+						#{$prop}: var(--space-#{$size}) !important;
+					}
+				} @else if $class == "pt" or $class == "pb" {
+					.#{$class}-#{$break}-#{$size},
+					.py-#{$break}-#{$size} {
+						#{$prop}: var(--space-#{$size}) !important;
+					}
+				} @else if $class == "pl" or $class == "pr" {
+					.#{$class}-#{$break}-#{$size},
+					.px-#{$break}-#{$size} {
+						#{$prop}: var(--space-#{$size}) !important;
+					}
+				} @else {
+					.#{$class}-#{$break}-#{$size} {
+						#{$prop}: #{$size}px !important;
+					}
+				}
+			}
+		}
+	}	
+}
+
+@mixin spacingEm($s) {
+	@each $class, $prop in $s {
+		@each $i, $val in $spacers {
+			@if $class == "mt" or $class == "mb" {
+				.#{$class}-#{$i}e,
+				.my-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			} @else if $class == "ml" or $class == "mr" {
+				.#{$class}-#{$i}e,
+				.mx-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			} @else if $class == "pt" or $class == "pb" {
+				.#{$class}-#{$i}e,
+				.py-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			} @else if $class == "pl" or $class == "pr" {
+				.#{$class}-#{$i}e,
+				.px-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			} @else {
+				.#{$class}-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			}
+		}
+	}
+
+	@include iterate_breakpoints() using ($break) {
+		@each $class, $prop in $s {
+			@each $i, $val in $spacers {
+				.#{$class}-#{$break}-#{$i}e {
+					#{$prop}: #{$val} !important;
+				}
+			}
+		}
+	}
+	
+}
+
+@include spacingEm($m);
+@include spacing($m);
+@include spacing($p);
+
+.mx-auto {
+	margin-left: auto !important;
+	margin-left: auto !important;
+}
+
+.my-auto {
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+
+@include iterate_breakpoints() using ($break) {
+	.mx-#{$break}-auto {
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+
+	.my-#{$break}-auto {
+		margin-top: auto !important;
+		margin-bottom: auto !important;
+	}
+}
+
+
+.g {
+	$this: &;
+
+	@at-root [class*="#{str-slice(#{&}, 2)}--items_"] {
+		@include row;
+	}
+
+	@at-root [class*="#{str-slice(#{&}, 2)}x--items"] {
+		margin-left: calc(-1 * var(--offset-x, var(--offset)));
+
+		> * {
+			margin-left: var(--offset-x, var(--offset));
+		}
+	}
+
+	@at-root [class*="#{str-slice(#{&}, 2)}y--items"] {
+		> * {
+			margin-bottom: var(--offset-y, var(--offset));
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@at-root {
+		@include iterate_spaces($from: 0, $to: 3xl) using ($size) {
+			#{&}--items,
+			#{&}y--items {
+				&_#{$size} {
+					--offset-y: var(--space-#{$size});
+				}
+			}
+	
+			#{&}--items,
+			#{&}x--items {
+				&_#{$size} {
+					--offset-x: var(--space-#{$size});
+				}
+			}
+		}	
+	}
+}
+
+@include iterate_spaces(m, xxl) using ($size) {
+	@if $size == "m" {
+		.p-card {
+			padding: var(--card-p-m) !important;
+		}
+	} @else {
+		.p-card-#{$size} {
+			padding: var(--card-p-#{$size}) !important;
+		}
+	}
+}
+

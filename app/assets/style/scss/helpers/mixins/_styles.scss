@@ -1,0 +1,56 @@
+
+@mixin sr_only {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+@mixin list_reset {
+	padding-left: 0;
+	padding-left: 0;
+
+	li {
+		list-style-type: none;
+	}
+
+	@content;
+}
+
+@mixin scrollbars($size: 8px, $fg: color('primary'), $bg: color('primary')) {
+    // для firefox
+    scrollbar-color: $fg $bg;
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin;
+    /* толщина */
+
+    // Для Chrome
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+        background-color: $bg;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $fg;
+    }
+}
+
+@mixin line_clamp($value: 4) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $value;
+	overflow: hidden;
+	@content;
+}
+
+@mixin column_count($columns: 2) {
+	column-count: #{$columns};
+	
+	> * {
+		break-inside: avoid;
+	}
+}

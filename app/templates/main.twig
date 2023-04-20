@@ -1,0 +1,564 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<!-- anzeige main -->
+	<section class="anzeige-welcom">
+		<div class="anzeige-welcom__container container container--xxl">
+			<!-- bg -->
+			<div class="anzeige-welcom__bg anzeige-welcom__bg--pos_right-bottom" role="presentation">
+				<img src="./assets/img/content/anzeige-main.png" alt="Business services in Warsaw">
+			</div>
+			<!-- content -->
+			<div class="anzeige-welcom__content">
+				<h1 class="anzeige-welcom__title title title--marked">
+					Business <br>
+					services in Warsaw
+				</h1>
+				<div class="anzeige-welcom__text">
+					A full range of services for your business. We will take care of your bookkeeping, legalization of your employees and compliance with Polish laws.
+				</div>
+				<div class="btns">
+					<div class="btns__list">
+						<a class="btn btn--style_bg btn--min-width">
+							<span class="btn__value">Get started</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- sci -->
+			<div class="anzeige-welcom__btns-sci btns">
+				<div class="btns__list flex-nowrap gx-l gy-0">
+					<!-- insta -->
+					<a href="#" class="btn btn--style_sci-insta" target="_blank">
+						<span class="btn__icon icon">
+							<svg aria-hidden="true">
+								<use xlink:href="assets/img/icons/sprite/sprite.svg#insta"></use>
+							</svg>
+						</span>
+					</a>
+					<!-- fb -->
+					<a href="#" class="btn btn--style_sci-fb" target="_blank">
+						<span class="btn__icon icon">
+							<svg aria-hidden="true">
+								<use xlink:href="assets/img/icons/sprite/sprite.svg#twitter"></use>
+							</svg>
+						</span>
+					</a>
+					<!-- youtube -->
+					<a href="#" class="btn btn--style_sci-youtube" target="_blank">
+						<span class="btn__icon icon">
+							<svg aria-hidden="true">
+								<use xlink:href="assets/img/icons/sprite/sprite.svg#youtube"></use>
+							</svg>
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Clients -->
+	<section class="section">
+		<div class="container">
+			<h2 class="section__title title title--marked">Clients</h2>
+			<!-- slider wrapper -->
+			<div class="slider slider--has_clients">
+				<!-- slider -->
+				<div class="slider__slider slider__slider swiper">
+					<div class="swiper-wrapper">
+						<!-- slide -->
+						<div class="brand-item swiper-slide">
+							<img src="./../assets/img/components/clients/BC.png" uk-img alt="Balt Credit">
+						</div>
+						<!-- slide -->
+						<div class="brand-item swiper-slide">
+							<img src="./../assets/img/components/clients/evotrans.png" uk-img alt="Evotrans">
+						</div>
+						<!-- slide -->
+						<div class="brand-item swiper-slide">
+							<img src="./../assets/img/components/clients/dodo.png" uk-img alt="Додо пицца">
+						</div>
+						<!-- slide -->
+						<div class="brand-item swiper-slide">
+							<img src="./../assets/img/components/clients/moteypolo.png" uk-img alt="Money Polo">
+						</div>
+						<!-- slide -->
+						<div class="brand-item swiper-slide">
+							<img src="./../assets/img/components/clients/fas.png" uk-img alt="fas">
+						</div>
+					</div>
+				</div>
+				<!-- pagination slider -->
+				<div class="slider__pagination"></div>
+			</div>
+		</div>
+	</section>
+	<!-- Clients -->
+	<div class="sketch">
+		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling"></div>
+		<section class="section section--inside">
+			<div class="container">
+				<h2 class="section__title title title--marked">Our services</h2>
+				<span></span>
+			</div>
+			<div class="container container--xxl">
+				<!-- slider wrapper -->
+				<div class="slider slider--has_services">
+					<!-- slider -->
+					<div class="slider__slider slider__slider swiper">
+						<div class="swiper-wrapper">
+							<!-- slide -->
+							<div class="card-service js-card-service swiper-slide">
+								<div class="card-service__bg" role="presentation">
+									<img src="./../assets/img/components/services-nav/accounting.jpg" loading="lazy" alt="Accounting">
+								</div>
+								<div class="card-service__content">
+									<div class="card-service__title">Accounting</div>
+									<div class="card-service__nav">
+										<ul class="card-service__nav-list">
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Maintenance</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Registration</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Recovery</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Lorem</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Ipsum</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- slide -->
+							<div class="card-service js-card-service swiper-slide">
+								<div class="card-service__bg" role="presentation">
+									<img src="./../assets/img/components/services-nav/annual-reports.jpg" loading="lazy" alt="Annual reports">
+								</div>
+								<div class="card-service__content">
+									<div class="card-service__title">Annual <br> reports</div>
+									<div class="card-service__nav">
+										<ul class="card-service__nav-list">
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Maintenance</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Registration</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Recovery</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Lorem</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Ipsum</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- slide -->
+							<div class="card-service js-card-service swiper-slide">
+								<div class="card-service__bg" role="presentation">
+									<img src="./../assets/img/components/services-nav/legal-service.jpg" loading="lazy" alt="Legal services">
+								</div>
+								<div class="card-service__content">
+									<div class="card-service__title">Legal <br> services</div>
+									<div class="card-service__nav">
+										<ul class="card-service__nav-list">
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Maintenance</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Registration</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Recovery</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Lorem</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Ipsum</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- slide -->
+							<div class="card-service js-card-service swiper-slide">
+								<div class="card-service__bg" role="presentation">
+									<img src="./../assets/img/components/services-nav/enterprice.jpg" loading="lazy" alt="Enterprise audit">
+								</div>
+								<div class="card-service__content">
+									<div class="card-service__title">Enterprise <br> audit</div>
+									<div class="card-service__nav">
+										<ul class="card-service__nav-list">
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Maintenance</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Registration</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Recovery</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Lorem</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Ipsum</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- slide -->
+							<div class="card-service js-card-service swiper-slide">
+								<div class="card-service__bg" role="presentation">
+									<img src="./../assets/img/components/services-nav/company-registration.jpg" loading="lazy" alt="Company ">
+								</div>
+								<div class="card-service__content">
+									<div class="card-service__title">Company <br> registration</div>
+									<div class="card-service__nav">
+										<ul class="card-service__nav-list">
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Maintenance</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Registration</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Recovery</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Lorem</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+											<li class="card-service__nav-item">
+												<a href="#">
+													<span>Ipsum</span>
+													<span class="icon icon--orientation_right">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#angle-2"></use>
+														</svg>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- pagination slider -->
+					<div class="slider__controls">
+						<div class="slider__pagination"></div>
+						<div class="slider__nav">
+							<div class="btns">
+								<div class="gx-3xs flex-nowrap btns__list">
+									<button class="slider__nav-btn slider__nav-btn--prev btn btn--type_icon btn--style_border-2" type="button" aria-label="previous slide">
+										<span class="btn__icon icon icon--orientation_left">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+											</svg>
+										</span>
+									</button>
+									<button class="slider__nav-btn slider__nav-btn--next btn btn--type_icon btn--style_border-2" aria-label="next slider">
+										<span class="btn__icon icon icon--orientation_right">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- blog -->
+	<section class="mb-0 section">
+		<div class="container">
+			<div class="section__title-block title-block">
+				<div class="title-block__list">
+					<h2 class="section__title title title--marked">Latest news</h2>
+					<div class="d-md-none btns">
+						<div class="btns__list">
+							<a href="#" class="link-3 fz-20">All news</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- slider wrapper -->
+			<div class="slider slider--has_records">
+				<!-- slider -->
+				<div class="slider__slider slider__slider swiper">
+					<div class="card-record-layout swiper-wrapper">
+						<!-- slide -->
+						<div class="card-record card-record--size_xl@md swiper-slide">
+							<figure class="card-record__img" role="presentation">
+								<img src="./../assets/img/test/record-1.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+							</figure>
+							<div class="card-record__content">
+								<div class="card-record__itemdata">
+									<time class="itemdata" datetime="2023-06-15">15 June 2022</time>
+								</div>
+								<h4 class="card-record__title">
+									<a href="#">We pride ourselves on delivering accurate and timely accounting solutions that help</a>
+								</h4>
+								<div class="card-record__text">
+									In addition to our accounting services, we also provide business consulting and advisory services to help our clients improve their operations and achieve their goals.
+								</div>
+							</div>
+						</div>
+						<!-- slide -->
+						<div class="card-record swiper-slide">
+							<figure class="card-record__img" role="presentation">
+								<img src="./../assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+							</figure>
+							<div class="card-record__content">
+								<div class="card-record__itemdata">
+									<time class="itemdata" datetime="2023-06-15">15 June 2022</time>
+								</div>
+								<h4 class="card-record__title">
+									<a href="#">Our team of experienced and qualified accountants</a>
+								</h4>
+							</div>
+						</div>
+						<!-- slide -->
+						<div class="card-record swiper-slide">
+							<figure class="card-record__img" role="presentation">
+								<img src="./../assets/img/test/record-3.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+							</figure>
+							<div class="card-record__content">
+								<div class="card-record__itemdata">
+									<time class="itemdata" datetime="2023-06-15">15 June 2022</time>
+								</div>
+								<h4 class="card-record__title">
+									<a href="#">And challenges of businesses operating in Poland.</a>
+								</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- pagination slider -->
+				<div class="slider__controls">
+					<div class="slider__pagination"></div>
+					<div class="d-none d-md-block btns">
+						<div class="btns__list">
+							<a href="#" class="link-3 fz-20">All news</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- about -->
+	<div class="sketch">
+		<figure class="sketch__bg sketch__bg--abstraction-1" role="presentation">
+			<img src="./assets/img/bg/abstraction-1.png" alt="">
+		</figure>
+		<section class="section half-b">
+			<div class="container">
+				<div class="half-b__row">
+					<div class="half-b__content">
+						<div class="content content--relaxed">
+							<h2 class="title title--marked">About us</h2>
+							<figure class="half-b__img" role="presentation">
+								<img src="assets/img/content/about.jpg" loading="lazy" alt="">
+							</figure>
+							<p>
+								Our team of experienced and qualified accountants understands the unique needs and challenges of businesses operating in Poland. We offer a wide range of business services, including bookkeeping, tax preparation and planning, financial statement preparation, payroll services, and more.
+							</p>
+							<p>
+								We pride ourselves on delivering accurate and timely accounting solutions that help our clients make informed decisions about their finances. 
+							</p>
+						</div>
+						<div class="mt-xxl mt-md-l btns">
+							<div class="btns__list">
+								<a href="#" class="btn btn--style_bg">
+									Contact us
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}	

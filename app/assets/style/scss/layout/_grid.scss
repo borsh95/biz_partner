@@ -1,0 +1,71 @@
+:root {
+	--columns: #{$grid-columns};
+	--offset-x: 30px;
+	--offset-y: 20px;
+}
+
+.row,
+[class*="row-cols"] {
+	--offset-x: 30px;
+	--offset-y: 20px;
+
+	@include row;
+
+	& > * {
+		flex: 0 0 auto;
+		min-width: 0;
+		// max-width: calc(100% - var(--offset-x));
+		@include col;
+	}
+}
+
+@for $i from 1 through $grid-columns {
+	.row-cols-#{$i} {
+		& > * {
+			width: calc(100% / var(--columns) * #{calc($grid-columns/$i)} - var(--offset-x));
+		}
+	}
+
+	.col-#{$i} {
+		width: calc(100% / #{$grid-columns} * #{$i} - var(--offset-x));
+	}
+}
+
+
+@include iterate_spaces($from: 0, $to: 8xl) using($i) {
+	.gx-#{$i},
+	.g-#{$i} {
+		--offset-x: var(--space-#{$i}) !important;
+	}
+
+	.gy-#{$i},
+	.g-#{$i} {
+		--offset-y: var(--space-#{$i}) !important;
+	}
+}
+
+@include iterate_breakpoints using($break) { 
+	@include iterate_spaces($from: 0, $to: 8xl) using($i) {
+		.gx-#{$break}-#{$i},
+		.g-#{$break}-#{$i} {
+			--offset-x: var(--space-#{$i}) !important;
+		}
+
+		.gy-#{$break}-#{$i},
+		.g-#{$break}-#{$i} {
+			--offset-y: var(--space-#{$i}) !important;
+		}
+	}
+
+	@for $i from 1 through $grid-columns {
+		.row-cols-#{$break}-#{$i} {
+			& > * {
+				width: calc(100% / #{$grid-columns} * #{calc($grid-columns/$i)} - var(--offset-x));
+			}
+		}
+
+		.col-#{$break}-#{$i} {
+			width: calc(100% / #{$grid-columns} * #{$i} - var(--offset-x));
+		}
+	}
+}

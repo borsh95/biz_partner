@@ -1,0 +1,46 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// font-size
+$fz: 14;
+$duration: 0.2s;
+
+// z-index
+$z-index-n: -1;
+$z-index-red: 0;
+$z-index: 1;
+$z-index-inc: 2;
+$z-index-header: 10;
+$z-index-dropdown: 15;
+$z-index-modal: 20;
+$z-index-fixed: 25;
+$z-index-overlay: 30;
+
+$brs: 8px;
+$brs-card: 12px;
+
+/* sizes controls */
+$control-h: 52;
+
+:root {	
+	--header-height: 108px;
+	/* spacings */
+	--container-offset-x: 30px;
+	--container-width: 1260px;
+	--container-width-xxl: 1980px;
+
+	/* font-family */
+	--fm-1: "Montserrat", sans-serif;
+
+	/* box shadow */
+	--bsh-xs: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	--bsh-m: 0px 0px 15px rgba(0, 0, 0, 0.25);
+	--bsh-focus: 0 0 0 0.1rem var(--color-focus-inner), 
+	0 0 0 .4rem var(--color-focus-outer);
+
+	@include media(md) {
+		--container-offset-x: 20px;
+	}
+
+	@include media(sm) {
+		--container-offset-x: 15px;
+	}
+}

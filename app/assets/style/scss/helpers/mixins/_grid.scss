@@ -1,0 +1,27 @@
+@mixin row($isLast: false) {
+	--offset-x: 20px;
+	--offset-y: 20px;
+
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: calc(var(--offset-x) * -1);
+	@if not $isLast {
+		margin-bottom: calc(var(--offset-y) * -1);
+	} @else {
+		&:last-child {
+			margin-bottom: calc(var(--offset-y) * -1);
+		}
+	}
+}
+
+@mixin col() {
+	margin-left: var(--offset-x) !important;
+	margin-bottom: var(--offset-y) !important;
+	word-wrap: break-word;
+}
+
+@mixin widthCol($n, $afterText: "") {
+	$after_text: "";
+
+	width: calc(100% / var(--columns) * #{$n} - var(--offset-x)) #{$afterText};
+}

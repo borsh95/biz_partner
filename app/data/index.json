@@ -1,0 +1,16 @@
+{
+	"project_name": "Encon",
+	"page_links": {
+		"Служебные": [{
+			"href": "./front_docs.html",
+			"text": "Документация"
+		}, {
+			"href": "./front_components.html",
+			"text": "Компоненты"
+		}, {
+			"href": "./front_icons.html",
+			"text": "Иконки"
+		}],
+		"Публичные страницы:": []
+	}
+}

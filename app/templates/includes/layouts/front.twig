@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="page front-pg{{ page.class ? " " ~ page.class : "" }}" lang="ru">
+	<head>
+		<item charset="UTF-8">
+		<item name="viewport" content="width=device-width, initial-scale=1.0">
+		<item name="author" content="ArtBro">
+		<title>{{ page.title.text ?? 'Страница' }}</title>
+		<!-- uikit css -->
+		<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="assets/style/style.css">
+		{# ------ SCRIPTS ----- #}
+		{% block scripts %}
+			<!-- jquery -->
+			<script src="assets/vendors/jquery/jquery.min.js" defer></script>
+			<!-- jquery event move -->
+			<script src="assets/vendors/jquery/jquery.event.move.js" defer></script>
+			<!-- uikit js -->
+			<script src="assets/vendors/uikit/uikit-icons.min.js" defer></script>
+			<script src="assets/vendors/uikit/uikit.min.js" defer></script>
+			<!-- main -->
+			<script src="assets/js/main.js" defer></script>
+		{% endblock %}
+	</head>
+	<body class="page__body">
+		<!-- CONTENT WRAP -->
+		<main class="page__content {{ site_content.class|default("") }}">
+			{% block content %}{% endblock %}
+		</main>
+	</body>
+</html>

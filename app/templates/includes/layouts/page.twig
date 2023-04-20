@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html {% include "@/_default.twig" with {
+	_default: {
+		id: page.id,
+		default_class: "page",
+		class: page.class,
+		params: page.params,
+		params_custom: page.params_custom,
+		data: page.data
+	}
+} %} lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="ArtBro">
+	<title>{{ title|length ? title : 'New' }}</title>
+	<!-- uikit css -->
+	<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
+	<!-- swiper css -->
+	<link rel="stylesheet" href="assets/vendors/swiper/swiper-bundle.min.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="assets/style/style.css">
+	{# ------ SCRIPTS ----- #}
+	{% block scripts %}
+		<script defer src="https://api-maps.yandex.ru/2.1/?apikey=b5e0936b-e237-4800-b700-849c633773b1&lang=ru_RU"></script>
+		<!-- jquery -->
+		<script src="assets/vendors/jquery/jquery.min.js" defer></script>
+		<!-- jquery event move -->
+		<script src="assets/vendors/jquery/jquery.event.move.js" defer></script>
+		<!-- uikit js -->
+		<script src="assets/vendors/uikit/uikit-icons.min.js" defer></script>
+		<script src="assets/vendors/uikit/uikit.min.js" defer></script>
+		<!-- swiper bundle -->
+		<script src="assets/vendors/swiper/swiper-bundle.min.js" defer></script>
+		<!-- main -->
+		<script src="assets/js/main.js" defer></script>
+	{% endblock %}
+</head>
+
+<body {% include "@/_default.twig" with {
+	_default: {
+		id: page.id,
+		default_class: "page__body",
+		class: page.body.class,
+		params: page.body.params,
+		params_custom: page.body.params_custom,
+		data: page.body.data
+	}
+} %}>
+	{# ------ HEADER ----- #}
+	{% block header %}
+		{% include "&/header.twig" %}
+	{% endblock %}
+
+	{# ------ BREADCRUMBS ----- #}
+	{% block breadcrumbs %}{% endblock %}
+
+	<!-- CONTENT WRAP -->
+	<div {% include "@/_default.twig" with {
+		_default: {
+			id: page.content.id,
+			default_class: "page__content",
+			class: page.content.class,
+			params: page.content.params,
+			params_custom: page.content.params_custom,
+			data: page.content.data
+		}
+	} %}>
+		{% block content %}{% endblock %}
+	</div>
+
+	{# ------ FOOTTER ----- #}
+	{% block footer %}
+		{% include "&/footer.twig" %}
+	{% endblock %}
+
+	{# ------ COMMON ----- #}
+	{% block common %}{% endblock %}
+</body>
+</html>

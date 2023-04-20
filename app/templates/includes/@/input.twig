@@ -1,0 +1,131 @@
+
+{% if input.element.id %}
+    {% set inputId = input.element.id %}
+{% else %}
+    {% set inputId %}field_{{ random() }}{{ random() }}{% endset %}
+{% endif %}
+
+{% set inputElement %}
+    <input {% include "@/_default.twig" with {
+            _default: {
+                default_class: "input__element",
+                front: input.element.front,
+                id: inputId,
+                class: input.element.class,
+                params_custom: input.element.params_custom,
+                params_boolean: {
+                    "input__element--state_invisible": input.invisible
+                },
+                data: input.element.data,
+                attrs: input.element.attrs,
+                styles: input.element.styles
+            }
+        } %}
+        {% if input.element.value %}value="{{ input.element.value }}"{% endif %}>
+{% endset %}
+
+{% if not input.invisible|default(false) %}
+    <div {% include "@/_default.twig" with {
+            _default: {
+                default_class: "input",
+                front: input.front,
+                id: input.id,
+                class: input.class,
+                params: input.params,
+                params_custom: input.params_custom,
+                params_boolean: {
+                    active: input.active
+                },
+                data: input.data,
+                attrs: input.attrs,
+                tooltip: input.tooltip,
+                styles: input.styles
+            }
+        } %}>
+        {% if input.options %}
+            {% include "@/options.twig" with {
+                options: input.options|merge({
+                    class: ["input__options"],
+                })
+            } %}
+        {% endif %}
+
+        <div class="input__content">
+            {% if input.icon %}
+                {% include "@/icon.twig" with {
+                    icon: input.icon|merge({
+                        class: ["input__icon", {
+                            "input__icon--right": input.icon_position_right
+                        }]|merge(input.icon.class|default([]))
+                    })
+                } %}
+            {% endif %}
+
+            {% if input.element.attrs.type == "password" %}
+                <div class="input__btns-action">
+                    {% include "@/btn.twig" with {
+                        btn: {
+                            class: ["input__btn-toggle-password"],
+                            params: {
+                                type: "icon",
+                                style: "transparent",
+                                without: ["brs"]
+                            },
+                            icon: {
+                                path: "icon/lock-closed"
+                            },
+                            icon_hidden: {
+                                path: "icon/lock-opened"
+                            }
+                        }
+                    } %}
+                </div>
+            {% endif %}
+
+            {{ inputElement }}
+
+            {% if input.element.attrs.type == "checkbox" or input.element.attrs.type == "radio" %}
+                {% if input.text.text %}
+                    <label {% include "@/_default.twig" with {
+                            _default: {
+                                default_class: "input__text",
+                                front: {
+                                    attrs: {
+                                        for: inputId
+                                    }
+                                },
+                                params_custom: input.text.params_custom,
+                                params_boolean: {
+                                    "uk-flex": input.text.info
+                                },
+                                data: input.text.data,
+                                attrs: input.text.attrs,
+                                styles: input.styles
+                            }
+                        } %}>
+                        {{ input.text.text }}
+                    </label>
+                {% endif %}
+
+                {% if input.control|default(true) %}
+                    <label {% include "@/_default.twig" with {
+                            _default: {
+                                default_class: "input__control",
+                                front: {
+                                    attrs: {
+                                        for: inputId
+                                    }
+                                },
+                                params_custom: input.text.params_custom,
+                                data: input.text.data,
+                                attrs: input.text.attrs,
+                                styles: input.styles
+                            }
+                        } %}></label>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% else %}
+    {{ inputElement }}
+{% endif %}

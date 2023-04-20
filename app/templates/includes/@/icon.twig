@@ -1,0 +1,27 @@
+<span {% include "@/_default.twig" with {
+	_default: {
+		default_class: "icon",
+		class: icon.class,
+		params: {
+			style: icon.style,
+			orientation: icon.orientation,
+			size: icon.size
+		}|merge(icon.params|default({})),
+		params_custom: icon.params_custom,
+		tooltip: icon.tooltip,
+		data: icon.data,
+		attrs: icon.attrs
+	}
+} %}>
+	{% if icon.path %}
+		{{ icon.path }}
+	{% elseif icon.name %}
+		<svg aria-hidden="true">
+			<use xlink:href="assets/img/icons/sprite/sprite.svg#{{ icon.name }}"></use>
+		</svg>
+	{% else %}    
+		<svg aria-hidden="true">
+			<use xlink:href="{{ icon.href }}"></use>
+		</svg>
+	{% endif %} 
+</span>

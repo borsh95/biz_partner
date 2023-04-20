@@ -1,0 +1,163 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ SETTINGS ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+$utilities: (
+	"display": (
+		property: display,
+		class: d,
+		values: none inline "inline-block" block "inline-flex" flex "inline-grid" grid,
+	),
+	"flex-wrap": (
+		property: "flex-wrap",
+		class: flex,
+		values: wrap "nowrap",
+	),
+	"flex-direction": (
+		property: flex-direction,
+		responsive: false,
+		class: flex,
+		values: column "column-reverse" row row-reverse,
+	),
+	"align-items": (
+		responsive: false,
+		property: "align-items",
+		class: "align-items",
+		values: (
+			start: "flex-start",
+			center: "center",
+			end: "flex-end",
+		),
+	),
+	"justify-content": (
+		responsive: false,
+		property: "justify-content",
+		values: (
+			start: "flex-start",
+			center: "center",
+			end: "flex-end",
+			around: "space-around",
+			between: "space-between",
+		),
+	),
+	"flex-shrink": (
+		responsive: false,
+		property: "flex-shrink",
+		values: initial 0 1,
+	),
+	"flex-grow": (
+		property: "flex-grow",
+		values: 0 1,
+	),
+	"width": (
+		property: "width",
+		class: w,
+		values: (
+			100\%: "100%",
+		),
+	),
+	"height": (
+		property: "height",
+		class: h,
+		values: (
+			100: "100%",
+		),
+	),
+	"order": (
+		property: order,
+		values: (
+			n2: -2,
+			n1: -1,
+			1: 1,
+			2: 2,
+			3: 3,
+		),
+	),
+	"font-weight": (
+		responsive: false,
+		property: "font-weight",
+		class: fw,
+		values: 200 300 400 500 600 700 800,
+	),
+	"font-size": (
+		property: "font-size",
+		class: fz,
+		values: (
+			10: "10px",
+			12: "12px",
+			14: "14px",
+			15: "15px",
+			16: "16px",
+			18: "18px",
+			20: "20px",
+			24: "24px",
+			28: "28px",
+		),
+	),
+	"line-height": (
+		responsive: false,
+		property: "line-height",
+		class: lh,
+		values: (
+			1: 1,
+			base: 1.5,
+			l: 1.8,
+			xl: 2,
+		),
+	),
+	"text-decoration": (
+		responsive: false,
+		property: "text-decoration",
+		values: (
+			none: none,
+			through: "line-through",
+			underline: underline,
+		),
+	),
+	"text-transform": (
+		responsive: false,
+		property: "text-transform",
+		values: uppercase lowercase none,
+	),
+	"white-space": (
+		responsive: false,
+		property: "white-space",
+		class: text,
+		values: nowrap wrap,
+	),
+	"text-align": (
+		property: "text-align",
+		responsive: false,
+		class: text,
+		values: (
+			start: left,
+			center: center,
+			right: right,
+		),
+	),
+	"border-radius": (
+		property: "border-radius",
+		responsive: false,
+		class: brs,
+		values: (
+			xxs: 2px,
+			xs: 4px,
+			s: #{rem(8)},
+			m: #{rem(12)},
+			l: #{rem(16)},
+			xl: #{rem(20)},
+			xxl: #{rem(28)},
+			3xl: #{rem(32)},
+		),
+	),
+	"box-shadow": (
+		property: "box-shadow",
+		responsive: false,
+		class: bsh,
+		values: (
+			xs: var(--bsh-xs),
+			m: var(--bsh-m)
+		),
+	),
+);
+
+@include utilities($utilities);
+@include colors_to_classes($colors);
+

@@ -1,0 +1,54 @@
+{
+	"header": {
+		"params": {
+			"state": "transparent"
+		}
+	},
+	"menu": {
+		"list": {
+			"items": [{
+				"link": {
+					"href": "#",
+					"text": "Services"
+				},
+				"submenu": {
+					"items": [{
+						"link": {
+							"href": "#",
+							"text": "Services"
+						}
+					}, {
+						"link": {
+							"href": "#",
+							"text": "About us"
+						}
+					}, {
+						"link": {
+							"href": "#",
+							"text": "News"
+						}
+					}, {
+						"link": {
+							"text": "Contact"
+						}
+					}]
+				}
+			}, {
+				"link": {
+					"href": "#",
+					"text": "About us"
+				}
+			}, {
+				"link": {
+					"href": "#",
+					"text": "News"
+				}
+			}, {
+				"link": {
+					"href": "#",
+					"text": "Contact"
+				}
+			}]
+		}
+	}
+}

@@ -1,0 +1,9 @@
+[tabindex],a,button,input,textarea,select,iframe,img,table,label,legend,option,video,audio {
+	outline: none;
+	box-shadow: 0 0 0 0px transparent, 
+              0 0 0 .0rem transparent;
+
+	&:focus-visible {
+		box-shadow: var(--bsh-focus);
+	}
+}

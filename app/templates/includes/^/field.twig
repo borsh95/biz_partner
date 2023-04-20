@@ -1,0 +1,95 @@
+
+
+{% if field.content.input.element.id %}
+    {% set inputId = field.content.input.element.id %}
+{% else %}
+    {% set inputId %}field_{{ random() }}{{ random() }}{% endset %}
+{% endif %}
+
+{% set optionActive = {} %}
+
+{% if field.content.select %}
+    {% if field.content.select.options.options_items %}
+        {% set break = false %}
+
+        {% for i, item in field.content.select.options.options_items.items if not break %}
+            {% if item.element.attrs.checked == true %}
+                {% set optionActive = item %}
+                {% set break = true %}
+            {% endif %}
+        {% endfor %}
+    {% elseif field.content.select.options.datepicker and not (field.content.select.options.datepicker.input.element.attrs.value == "") %}
+        {% set optionActive = item %}
+    {% endif %}
+{% endif %}
+
+{% if not (field.content.input.element.attrs.value|default("") == "") or not (field.content.textarea.element.value|default("") == "") or optionActive|length %}
+    {% set frontCLass = ["filled"] %}
+{% endif %}
+
+<div {% include "@/_default.twig" with {
+        _default: {
+            default_class: "field",
+            id: field.id,
+            class: field.class|default([])|merge(frontCLass|default([])),
+            params: field.params,
+            params_custom: field.params_custom,
+            data: field.data,
+            attrs: field.attrs,
+            tooltip: field.tooltip,
+            styles: field.styles
+        }
+    } %}>
+    {% if field.label %}
+        <label {% include "@/_default.twig" with {
+                _default: {
+                    default_class: "field__label",
+                    front: {
+                        attrs: {
+                            for: inputId
+                        }
+                    },
+                    class: field.label.class,
+                    params_custom: field.label.params_custom
+                }
+            } %}>
+            {{ field.label.text }}
+        </label>
+    {% endif %}
+
+    <div {% include "@/_default.twig" with {
+        _default: {
+            default_class: "field__content",
+            params_custom: field.content.params_custom,
+        }
+    } %}>
+        {% if field.content.input %}
+            {% include "@/input.twig" with {
+                input: field.content.input|merge({
+                    class: ["field__input"]|merge(field.content.input.class|default({})),
+                    element: field.content.input.element|default({})|merge({
+                        id: inputId
+                    })
+                })
+            } %}
+        {% elseif field.content.textarea %}
+            {% include "@/textarea.twig" with {
+                textarea: field.content.textarea|merge({
+                    element: field.content.textarea.element|merge({
+                        id: inputId
+                    })
+                })
+            } %}
+        {% elseif field.content.select %}
+            {% include "@/select.twig" with {
+                select: field.content.select|merge({
+					label: field.label
+				}),
+            } %}
+        {% endif %}
+    </div>
+
+    {% if field.status.text %}
+        <div class="field__status-text">{{ field.status.text }}</div>
+    {% endif %}
+</div>

@@ -1,0 +1,18 @@
+//breakpoints
+$xxl: 1920;
+$xl: 1450;
+$lg: 1230;
+$md: 1024;
+$sm: 768;
+$xs: 480;
+
+$breakpoints: (
+	"xxl": $xxl,
+	"xl": $xl,
+	"lg": $lg,
+	"md": $md,
+	"sm": $sm,
+	"xs": $xs
+) !default;
+
+$grid-columns: 12 !default;

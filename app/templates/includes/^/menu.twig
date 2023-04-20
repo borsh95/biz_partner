@@ -1,0 +1,73 @@
+{# ------ list ----- #}
+{% macro list(list, default_class, lvl = 0) %}
+	{% import _self as tree %}	
+	
+	{% if lvl != 0 %}
+		<div class="menu__submenu menu__submenu--lvl_{{ lvl }}">
+	{% endif %}
+	<ul {% include "@/_default.twig" with {
+			_default: {
+				default_class: default_class,
+				class: list.class
+ 			}
+		} %}
+	>
+		{% for item in list.items %}
+			<li {% include "@/_default.twig" with {
+				_default: {
+					default_class: "menu__item",
+					class: item.class,
+					params: item.params,
+					params_custom: item.params_custom,
+					params_boolean: {
+						"menu__item--hang": item.burger,
+						"active": not item.link.href
+					},
+					data: item.data
+				}
+			} %}>
+				{% if item.burger %}
+					{% include "@/hamburger.twig" with {
+						hamburger: {
+							class: ["menu__item-toggle"],
+							params: {
+								size: "s"
+							}
+						}
+					} %}
+				{% endif %}
+				
+				<a class="menu__link"{% if item.link.href %} href="{{ item.link.href }}"{% endif %}>
+					<span>{{ item.link.text }}</span>
+					{% if item.submenu %}
+						<span class="menu__link-arr icon">
+							<svg aria-hidden="true">
+								<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+							</svg>
+						</span>
+					{% endif %}
+				</a>
+
+				{% if item.submenu %}
+					{{ tree.list(item.submenu, "menu__submenu-list", lvl + 1) }}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% if lvl != 0 %}
+	</div>
+	{% endif %}
+{% endmacro %}
+
+<nav
+	{% include "@/_default.twig" with {
+		_default: {
+			default_class: "menu",
+			class: menu.class
+		}
+	} %}
+>	
+	{% import _self as tree %}
+
+	{{ tree.list(menu.list, "menu__list", 0) }}
+</nav>

@@ -1,0 +1,15 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~ FONT FAMILY ~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@mixin font-face($font-family, $weight, $file-name, $style: normal) {
+	@font-face {
+		font-family: "#{$font-family}";
+		src: url("./../fonts/#{$file-name}.woff2") format("woff2"), url("./../fonts/#{$file-name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-display: swap;
+		font-style: $style;
+	}
+}
+
+@include font-face("Montserrat", 400, Montserrat-Regular);
+@include font-face("Montserrat", 400, Montserrat-RegularItalic, italic);
+@include font-face("Montserrat", 500, Montserrat-Medium);
+@include font-face("Montserrat", 700, Montserrat-Bold);
