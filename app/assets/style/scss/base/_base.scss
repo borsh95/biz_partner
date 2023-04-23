@@ -10,6 +10,14 @@ body {
 	font-size: #{$fz}px;
 	color: var(--color-txt);
 	background-color: color('bg');
+
+	@include media(xl) {
+		font-size: 16px;
+	}
+
+	@include media(sm) {
+		font-size: 14px;
+	}
 }
 
 /*--------------------------------Common--------------------------------*/
@@ -35,8 +43,13 @@ body {
 		background-color: color('bg');
 	}
 
+	&__title {
+		margin-top: 0;
+		margin-bottom: rem(38);
+	}
+
 	&__content {
-		padding: rem(40) 0 rem(86);
+		padding: rem(50) 0 rem(86);
 		flex-grow: 1;
 
 		@include media(md) {
@@ -62,10 +75,13 @@ body {
 		margin-bottom: rem(48);
 	}
 
-	@include media(md) {
-		&__main.container > *,	
+	@include media(sm) {
+		&__content {
+			padding-top: 16px;
+		}
+
 		&__title {
-			margin-bottom: rem(32);
+			margin-bottom: 18px;
 		}
 	}
 }

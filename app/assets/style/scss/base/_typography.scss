@@ -220,6 +220,10 @@ b {
 	}
 }
 
+hr {
+	border-color: color('base', 0.3);
+}
+
 .content,
 .text {
 	--text-line-height: 1.25;
@@ -234,13 +238,13 @@ b {
 	  }
 	  
 	&--relaxed {
-		--body-line-height: 1.4;
+		--text-line-height: 1.4;
 		--text-spacing: 1.25rem;
 	}
 
 	&--loose {
-		--body-line-height: 1.5;
-		--text-spacing: 1.25rem;
+		--text-line-height: 1.5;
+		--text-spacing: 1.5em;
 	}
 
 	&::after {
@@ -288,6 +292,15 @@ b {
 	&__item-full-width {
 		width: 100vw;
 		margin-left: calc(50% - 50vw);
+	}
+
+	a {
+		color: var(--color-base);
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 	figcaption {

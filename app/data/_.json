@@ -1,9 +1,4 @@
 {
-	"header": {
-		"params": {
-			"state": "transparent"
-		}
-	},
 	"menu": {
 		"list": {
 			"items": [{
@@ -24,7 +19,7 @@
 						}
 					}, {
 						"link": {
-							"href": "#",
+							"href": "#n",
 							"text": "News"
 						}
 					}, {
@@ -45,7 +40,6 @@
 				}
 			}, {
 				"link": {
-					"href": "#",
 					"text": "Contact"
 				}
 			}]

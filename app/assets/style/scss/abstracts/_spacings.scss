@@ -61,7 +61,7 @@ $p: (
 			}
 		}
 
-		@include iterate_spaces() using ($size) {
+		@include iterate_spaces($from: 0) using ($size) {
 			@if $class == "mt" or $class == "mb" {
 				.#{$class}-#{$size},
 				.my-#{$size} {
@@ -95,7 +95,7 @@ $p: (
 			.#{$class}-#{$break}-auto {
 				#{$prop}: auto !important;
 			}
-			@include iterate_spaces using ($size) {
+			@include iterate_spaces($from: 0) using ($size) {
 				@if $class == "mt" or $class == "mb" {
 					.#{$class}-#{$break}-#{$size},
 					.my-#{$break}-#{$size} {

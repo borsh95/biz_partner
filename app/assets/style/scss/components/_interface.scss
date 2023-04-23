@@ -103,9 +103,11 @@
 	}
 
 	&--width {
+
 		&_content {
 			max-width: initial;
-			min-width: inherit;
+			min-width: initial;
+			width: initial;
 		}
 
 		&_s {
@@ -136,9 +138,14 @@
 
 		> * {
 			margin-right: 24px;
-
+			
 			&:last-child {
 				margin-right: 0;
+			}
+
+			&:only-child {
+				margin-left: auto;
+				margin-right: auto;
 			}
 		}
 
@@ -152,32 +159,13 @@
 	}
 
 	&__nav {
-		// pointer-events: none;
-		// position: absolute;
-		// top: 50%;
-		// z-index: 0;
-		// display: flex;
-		// justify-content: space-between;
-		// width: 100%;
-		// transform: translateY(-50%);
+		padding-bottom: 1px;
 
 		&-btn {
 			display: inline-block;
-			transition: opacity $duration;
 
 			&.swiper-button-lock {
 				display: none !important;
-			}
-
-			&.swiper-button-disabled {
-				pointer-events: none;
-				opacity: 0.5;
-			}
-
-			&--prev {
-			}
-
-			&--next {
 			}
 		}
 	}
@@ -274,12 +262,22 @@
 			}
 
 			@include media(sm) {
-				margin-left: calc(-1 * var(--container-offset-x));
-				margin-right: calc(-1 * var(--container-offset-x));
+				#{$this}__slider {
+					margin-left: calc(-1 * var(--container-offset-x));
+					margin-right: calc(-1 * var(--container-offset-x));	
+				}
 			}
 		}
 
 		&_services {
+			overflow: hidden;
+
+			#{$this}__slider {
+				margin-left: calc(-1 * var(--container-offset-x));
+				margin-right: calc(-1 * var(--container-offset-x));
+				overflow: visible;
+			}
+
 			@include media(1500, min-width) {
 				.swiper-wrapper {
 					@include row;
@@ -307,26 +305,19 @@
 			}
 
 			@include media(1499.8) {
-				padding: 3px var(--container-offset-x);
-				overflow: hidden;
-
-				.container & {
-					margin-left: calc(-1 * var(--container-offset-x));
-					margin-right: calc(-1 * var(--container-offset-x));	
-				}
-
-				#{$this}__slider {
-					overflow: initial
-				}
-
-				.swiper-slide {
-					width: 320px !important;
+				.swiper-wrapper {
+					> * {
+						width: 320px !important;
+					}
 				}
 			}
 
 			@include media(sm) {
-				margin-left: calc(-1 * var(--container-offset-x));
-				margin-right: calc(-1 * var(--container-offset-x));
+				#{$this}__slider {
+					padding: 0 var(--container-offset-x);
+					margin-left: calc(-1 * var(--container-offset-x));
+					margin-right: calc(-1 * var(--container-offset-x));
+				}
 
 				.swiper-slide {
 					width: 264px !important;
@@ -377,6 +368,217 @@
 						width: 270px !important;
 					}
 				}
+			}
+		}
+
+		&_team {
+			@include media(md, min-width) {
+				overflow: visible;
+
+				#{$this} {
+					&__controls,
+					&__pagination, 
+					&__nav {
+						display: none;
+					}
+				}
+
+				.swiper-wrapper {
+					@include row;
+					--offset-x: 34px;
+					--offset-y: 34px;
+					transform: none !important;
+
+					> * {
+						@include col;
+						@include widthCol(3);
+						height: initial;
+					}
+				}
+			}
+
+			@include media(md) {
+				padding: 3px var(--container-offset-x);
+
+				.container & {
+					margin-left: calc(-1 * var(--container-offset-x));
+					margin-right: calc(-1 * var(--container-offset-x));	
+				}
+
+				#{$this}__slider {
+					overflow: initial
+				}
+
+				.swiper-wrapper {
+					> * {
+						width: 300px !important;
+						
+						&[hidden] {
+							display: block !important;
+						}
+					}
+				}
+			}
+
+			@include media(sm) {
+				.swiper-wrapper {
+					> * {
+						width: 264px !important;
+					}
+				}
+			}
+		}
+
+		&_results {
+			@include media(md, min-width) {
+				overflow: visible;
+
+				#{$this} {
+					&__controls,
+					&__pagination, 
+					&__nav {
+						display: none;
+					}
+				}
+
+				.swiper-wrapper {
+					@include row;
+					--offset-x: #{rem(30)};
+					--offset-y: 28px;
+					transform: none !important;
+
+					> * {
+						@include col;
+						@include widthCol(3);
+						height: auto;
+					}
+				}
+			}
+
+			@include media(md) {
+				padding: 3px var(--container-offset-x);
+				overflow: hidden;
+
+				.container & {
+					margin-left: calc(-1 * var(--container-offset-x));
+					margin-right: calc(-1 * var(--container-offset-x));	
+				}
+
+				#{$this}__slider {
+					overflow: initial
+				}
+
+				.swiper-wrapper {
+					> * {
+						width: 300px !important;
+						
+						&[hidden] {
+							display: block !important;
+						}
+					}
+				}
+			}
+
+			@include media(sm) {
+				.swiper-wrapper {
+					> * {
+						width: 264px !important;
+					}
+				}
+			}
+		}
+
+		&_item-list {
+			@include media(md, min-width) {
+				overflow: visible;
+
+				#{$this} {
+					&__slider {
+						overflow: visible;
+					}
+
+					&__controls,
+					&__pagination, 
+					&__nav {
+						display: none;
+					}
+				}
+
+				.swiper-wrapper {
+					@include row;
+					--offset-x: #{rem(120)};
+					--offset-y: #{rem(120)};
+
+					width: auto;
+					transform: none !important;
+
+					> * {
+						@include col;
+						
+						width: calc(50% - var(--offset-x)) !important;
+						height: auto;
+
+						&:nth-of-type(even) {
+							transform: translateY(#{rem(150)});
+						}
+					}
+				}
+
+				@include media(xxl) {
+					.swiper-wrapper {
+						@include row;
+						--offset-x: #{rem(90)};
+						--offset-y: #{rem(90)};
+						transform: none !important;
+					}
+				}				
+			}
+
+			@include media(md) {
+				padding: 3px var(--container-offset-x);
+				overflow: hidden;
+
+				.container & {
+					margin-left: calc(-1 * var(--container-offset-x));
+					margin-right: calc(-1 * var(--container-offset-x));	
+				}
+
+				#{$this}__slider {
+					overflow: initial
+				}
+			}
+		}
+
+		&_full-card {
+			@include media(sm, min-width) {
+				overflow: visible;
+
+				#{$this} {
+					&__slider {
+						overflow: visible;
+					}
+
+					&__controls,
+					&__pagination, 
+					&__nav {
+						display: none;
+					}
+				}
+
+				.swiper-wrapper {
+					@include row;
+					--offset-x: #{rem(20)};
+					--offset-y: #{rem(20)};
+
+					width: auto;
+					transform: none !important;
+
+					> * {
+						@include col;
+						
+						width: calc(100% - var(--offset-x)) !important;
+					}
+				}				
 			}
 		}
 	}

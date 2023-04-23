@@ -17,7 +17,6 @@ $utilities: (
 		values: column "column-reverse" row row-reverse,
 	),
 	"align-items": (
-		responsive: false,
 		property: "align-items",
 		class: "align-items",
 		values: (
@@ -27,7 +26,6 @@ $utilities: (
 		),
 	),
 	"justify-content": (
-		responsive: false,
 		property: "justify-content",
 		values: (
 			start: "flex-start",

@@ -1,0 +1,23 @@
+{
+	"page": {
+		"title": {
+			"text": "404"
+		},
+		"body": {
+			"params_custom": {
+				"pt": 0
+			}
+		},
+		"content": {
+			"params_custom": {
+				"py": 0,
+				"uk": "position-relative"
+			}
+		}
+	},
+	"header": {
+		"params": {
+			"state": "transparent"
+		}
+	}
+}

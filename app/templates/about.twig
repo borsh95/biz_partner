@@ -1,0 +1,363 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<div class="sketch">
+		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling-page"></div>
+		<figure class="sketch__bg sketch__bg--abstraction-1" role="presentation">
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
+			</picture>
+		</figure>
+		<figure class="sketch__bg sketch__bg--pos_left-bottom" role="presentation" 
+			style="bottom: -160px; max-width: 816px; transform: translateX(-62%)"
+		>
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
+			</picture>
+		</figure>
+		
+		<div class="sketch__content">
+			<div class="container">
+				{% block breadcrumbs %}
+					{% include "./includes/@/breadcrumbs.twig" with { 
+						breadcrumbs: {
+							items:  [ 
+								{text: "Home"},
+								{text: "About us"}
+							] 
+						}
+					} only %}
+				{% endblock breadcrumbs %}
+
+				<h1 class="page__title title title--marked title--indet">About us</h1>
+				<!-- desc item -->
+				<div class="desc-item">
+					<div class="desc-item__row">
+						<div class="desc-item__before">
+							<figure>
+								<img class="mx-md-auto" src="./assets/img/content/building.jpg" loading="lazy" alt="">
+							</figure>
+						</div>
+						<div class="desc-item__content content content--loose">
+							<h4>
+								BIZ PARTNER is a Polish accounting outsourcing company that specializes in providing comprehensive services in the field of accounting and taxation in Poland
+							</h4>
+							<p>
+								Our team is a team of highly qualified professionals with a strong technical base and able to quickly solve complex problems of clients in the field of accounting and taxation in Poland.
+							</p>
+	
+							<p>
+								Our goal is to provide business in Poland with the best accounting services, as well as outsourcing of processes related to the interaction of your business with the Polish government.
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- desc item -->
+				<div class="desc-item desc-item--revert">
+					<div class="desc-item__row">
+						<div class="desc-item__before">
+							<figure>
+								<img class="mx-md-auto" src="./assets/img/content/gerl.jpg" loading="lazy" alt="">
+							</figure>
+						</div>
+						<div class="desc-item__content content content--loose">
+							<h4>
+								We also offer additional services to our clients, which include
+							</h4>
+							<ul>
+								<li>registration of licenses, certificates and other permits</li>
+								<li>registration of all types of residence cards (residence permits) in Poland</li>
+								<li>servicing investments in Poland</li>
+								<li>support of transactions for the purchase of business and commercial real estate</li>
+							</ul>
+							<h4>
+								We work with medium and large businesses in Poland
+							</h4>
+							<p>
+								Our clients are famous brands.
+								By entrusting your bookkeeping to us, you can easily deal with other processes without burdening yourself with unnecessary problems.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Our team -->
+	<section class="mb-sm-xxl section sketch uk-overflow-hidden">
+		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling-2"></div>
+		<div class="sketch__content">
+			<div class="container">
+				<h2 class="section__title title title--marked">Our team</h2>
+				<!-- slider wrapper -->
+				<div class="slider slider--has_team">
+					<!-- slider -->
+					<div class="slider__slider slider__slider swiper">
+						<div class="swiper-wrapper">
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-1.jpg" loading="lazy" alt="James Bishop">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">James Bishop</div>
+									<div class="card-user__post">CEO</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-2.jpg" loading="lazy" alt="Maria Udalova">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Maria Udalova</div>
+									<div class="card-user__post">Designer</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-3.jpg" loading="lazy" alt="Andrew One">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Andrew One</div>
+									<div class="card-user__post">Marketing director</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-3.jpg" loading="lazy" alt="Andrew One">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Andrew One</div>
+									<div class="card-user__post">Marketing director</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-4.jpg" loading="lazy" alt="Kate Watch">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Kate Watch</div>
+									<div class="card-user__post">Developer</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-5.jpg" loading="lazy" alt="Tony Hawkins">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Tony Hawkins</div>
+									<div class="card-user__post">SMM</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-6.jpg" loading="lazy" alt="Ana May">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Ana May</div>
+									<div class="card-user__post">PPC Specialist</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-6.jpg" loading="lazy" alt="Ana May">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Ana May</div>
+									<div class="card-user__post">PPC Specialist</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide my-class" hidden="true">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-5.jpg" loading="lazy" alt="Tony Hawkins">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Tony Hawkins</div>
+									<div class="card-user__post">SMM</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide my-class" hidden="true">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-6.jpg" loading="lazy" alt="Ana May">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Ana May</div>
+									<div class="card-user__post">PPC Specialist</div>
+								</div>
+							</div>
+							<!-- user card -->
+							<div class="card-user swiper-slide my-class" hidden="true">
+								<div class="card-user__img">
+									<img src="./assets/img/test/user-6.jpg" loading="lazy" alt="Ana May">
+								</div>
+								<div class="card-user__content">
+									<div class="card-user__title">Ana May</div>
+									<div class="card-user__post">PPC Specialist</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- btns -->
+					<div class="d-md-none mt-xl btns btns--highlighted">
+						<div class="btns__list">
+							<button class="btn btn--style_border btn--min-width" type="button" aria-expanded="false
+							" uk-toggle="target: .my-class; animation: uk-animation-fade">
+								<span class="btn__value-active">hide</span>
+								<span class="btn__value">Show more</span>
+							</button>
+						</div>
+					</div>
+					<!-- pagination slider -->
+					<div class="slider__controls">
+						<div class="slider__pagination"></div>
+						<div class="slider__nav">
+							<div class="btns">
+								<div class="gx-3xs flex-nowrap btns__list">
+									<button class="slider__nav-btn slider__nav-btn--prev btn btn--type_icon btn--style_border-2" type="button" aria-label="previous slide">
+										<span class="btn__icon icon icon--orientation_left">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+											</svg>
+										</span>
+									</button>
+									<button class="slider__nav-btn slider__nav-btn--next btn btn--type_icon btn--style_border-2" aria-label="next slider">
+										<span class="btn__icon icon icon--orientation_right">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#arrow"></use>
+											</svg>
+										</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="sketch">
+		<figure class="sketch__bg sketch__bg--pos_left-bottom" role="presentation" 
+			style="bottom: -30px; max-width: 73vw; transform: translateX(-69%)"
+		>
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
+			</picture>
+		</figure>
+		<div class="sketch__content">
+			<section class="section">
+				<div class="container">
+					<h3 class="mb-3xs title title--marked title--indet">Contact us</h3>
+					<div class="row gx-3xl gy-3xl">
+						<div class="col-6 col-md-12">
+							<!-- form -->
+							<form action="#" class="form">
+								<div class="form__conten gy--items_m">
+									<div class="field-block">
+										<div class="field-block__list">
+											<!-- field -->
+											<div class="field">
+												<div class="field__content">
+													<div class="input">
+														<input type="text" required="" placeholder=" ">
+														<span class="input__placeholder">Name</span>
+													</div>
+												</div>
+											</div>
+											<!-- field -->
+											<div class="field">
+												<div class="field__content">
+													<div class="input">
+														<input type="tel" required="" placeholder=" ">
+														<span class="input__placeholder">Phone</span>
+													</div>
+												</div>
+											</div>
+											<!-- field -->
+											<div class="field">
+												<div class="field__content">
+													<div class="input">
+														<input type="email" required="" placeholder=" ">
+														<span class="input__placeholder">Email address</span>
+													</div>
+												</div>
+											</div>
+											<!-- field -->
+											<div class="field">
+												<div class="field__content">
+													<div class="input">
+														<textarea placeholder=" "></textarea>
+														<span class="input__placeholder">Message</span>
+													</div>
+												</div>
+											</div>
+											<!-- field -->
+											<div class="field">
+												<div class="field__content">
+													<label class="input">
+														<input type="checkbox" checked="" disabled="">
+														<span class="input__text">I agree of the processing of personal data</span>
+														<span class="input__control">
+															<span class="icon">
+																<svg aria-hidden="true">
+																	<use xlink:href="assets/img/icons/sprite/sprite.svg#check"></use>
+																</svg>
+															</span>
+														</span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+									<button class="w-sm-100% btn btn--style_bg btn--min-width" type="submit">
+										<span class="btn__value">Send</span>
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="col-6 col-md-12">
+							<h4>Legal information about the company</h4>
+							<ul class="list-info">
+								<li class="list-info__item">
+									<p><b>Name:</b> Name: BIZ PARTNER SP. ZO.O.</p>
+								</li>
+								<li class="list-info__item">
+									<p><b>NIP:</b>  5223082983 / KRS: 0000662351 / REGON: 366512742</p>
+								</li>
+								<li class="list-info__item">
+									<p><b>Address:</b> ul. Solipska 3/5, 02-482 Warsaw Poland</p>
+								</li>
+								<li class="list-info__item">
+									<p><b>The amount of the authorized capita</b> l as of 01.01.2022 is PLN 400,000.00</p>
+								</li>
+								<li class="list-info__item list-info__item--action">
+									<a href="#">
+										<span class="icon">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#doc"></use>
+											</svg>
+										</span>
+										<span>Check our certificates</span>
+									</a>
+								</li>
+							</ul>					
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+{% endblock %}	

@@ -11,6 +11,27 @@
 			"href": "./front_icons.html",
 			"text": "Иконки"
 		}],
-		"Публичные страницы:": []
+		"Публичные страницы:": [{
+			"href": "./main.html",
+			"text": "Main"
+		}, {
+			"href": "./main.html",
+			"text": "Blog"
+		}, {
+			"href": "./article.html",
+			"text": "Article"
+		}, {
+			"href": "./contacts.html",
+			"text": "Contacts"
+		}, {
+			"href": "./about.html",
+			"text": "About"
+		}, {
+			"href": "./service.html",
+			"text": "Service"
+		}, {
+			"href": "./404.html",
+			"text": "404"
+		}]
 	}
 }

@@ -1,8 +1,13 @@
 /*==================== HEADER ====================*/
 .header {
-	position: relative;
+	$this: &;
+
+	position: fixed;
+	left: 0;
+	top: 0;
 	z-index: $z-index-header;
 	padding: rem(30) 0;
+	width: 100%;
 	font-size: rem(20);
 	background-color: var(--color-bg);
 	border-bottom: 1px solid color('base', 0.3);
@@ -32,6 +37,22 @@
 	
 	&__menu {
 		color: var(--color-black);
+	}
+
+	&__toggle-burger {
+		display: inline-flex;
+		align-items: center;
+		font-size: 18px;
+		
+		.hamburger {
+			--hamburger-width-line: 19px;
+			--hamburger-height-line: 3px;
+			--hamburger-margin-line: 2px;
+			--hamburger-bgc-line: var(--color-base);
+
+			margin-left: em(8, 18);
+			margin-bottom: -0.3em;
+		}
 	}
 
 	&--state {
@@ -109,9 +130,25 @@
 
 				> * {
 					margin-bottom: 30px;
-
 					&:last-child {
-						margin-top: 0;
+						margin-bottom: 0;
+					}
+				}
+
+				> #{$this}__row {
+					flex-direction: column;
+					align-items: stretch;
+					width: 100%;
+
+					>  * {
+						margin-right: 0;
+					}
+				}
+
+				#{$this}__right {
+					#{$this}__row {
+						justify-content: space-between;
+						margin-bottom: 24px;
 					}
 				}
 			}

@@ -1,0 +1,151 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<div class="sketch">
+		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling-page">
+			<figure class="sketch__bg sketch__bg--abstraction-2" role="presentation">
+				<img src="./assets/img/bg/abstraction-1.png" alt="">
+			</figure>
+		</div>
+		<div class="sketch__content">
+			<div class="container">
+				{% block breadcrumbs %}
+					{% include "./includes/@/breadcrumbs.twig" with { 
+						breadcrumbs: {
+							items:  [ 
+								{text: "Home"},
+								{text: "Contacts"}
+							] 
+						}
+					} only %}
+				{% endblock breadcrumbs %}
+				<h1 class="page__title title title--marked title--indet">Contact us</h1>
+				<div class="row-cols-2 row-cols-md-1 gy-8xl">
+					<div class="col">
+						<div class="contacts-b">
+							<!-- item -->
+							<div class="item" style="line-height: 1.8;">
+								<span class="item__icon icon">
+									<svg aria-hidden="true">
+										<use xlink:href="assets/img/icons/sprite/sprite.svg#mark"></use>
+									</svg>
+								</span>
+								<span class="item__content">
+									<h3 class="item__title">Address</h3>
+									<span class="item__value">
+										ul. Solipska 3/5, <br> 02-482Warsaw, Poland
+									</span>
+								</span>
+							</div>
+							<hr class="mt-0">
+							<!-- item -->
+							<div class="item" style="line-height: 1.8;">
+								<span class="item__icon icon">
+									<svg aria-hidden="true">
+										<use xlink:href="assets/img/icons/sprite/sprite.svg#phone"></use>
+									</svg>
+								</span>
+								<span class="item__content">
+									<h3 class="item__title">Contacts</h3>
+									<span class="item__value">
+										Infoline: <a href="tel:+48733755322" class="link-4">+48 733-755-322</a> <br>
+										Sales: <a href="+48570355332" class="link-4">+48 570-355-332</a> <br>
+										<a href="emailto:info@biz-partner.com.pl" class="link-4">info@biz-partner.com.pl</a>
+									</span>
+								</span>
+							</div>
+							<div class="mt-l btns">
+								<div class="btns__list justify-content-sm-center gx-l gx-3xl">
+									<a href="#" class="btn btn--style_sci-2" target="_blank">
+										<span class="btn__icon icon">
+											<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M20.1968 39.8454C31.0453 39.8454 39.8398 30.971 39.8398 20.0238C39.8398 9.07659 31.0453 0.202148 20.1968 0.202148C9.34821 0.202148 0.553711 9.07659 0.553711 20.0238C0.553711 30.971 9.34821 39.8454 20.1968 39.8454Z" fill="url(#paint0_linear_651_584)"></path> <path d="M8.72863 19.852L21.9565 14.3524C23.2622 13.7795 27.6904 11.9463 27.6904 11.9463C27.6904 11.9463 29.7342 11.1443 29.5639 13.0921C29.5071 13.8941 29.0529 16.7012 28.5988 19.7375L27.1795 28.7317C27.1795 28.7317 27.0659 30.0493 26.1008 30.2784C25.1357 30.5076 23.5461 29.4764 23.2622 29.2473C23.0351 29.0754 19.0043 26.4974 17.5283 25.2371C17.1309 24.8934 16.6767 24.2059 17.585 23.4039C19.6288 21.5134 22.07 19.1646 23.5461 17.6751C24.2273 16.9876 24.9086 15.3836 22.07 17.3314L14.0652 22.7737C14.0652 22.7737 13.1568 23.3466 11.4537 22.831C9.75052 22.3154 7.76351 21.628 7.76351 21.628C7.76351 21.628 6.40098 20.7686 8.72863 19.852Z" fill="white"></path> <defs> <linearGradient id="paint0_linear_651_584" x1="26.746" y1="6.81089" x2="16.7733" y2="29.8692" gradientUnits="userSpaceOnUse"> <stop stop-color="#37AEE2"></stop> <stop offset="1" stop-color="#1E96C8"></stop> </linearGradient> </defs> </svg>
+										</span>
+									</a>
+									<a href="#" class="btn btn--style_sci-2" target="_blank">
+										<span class="btn__icon icon">
+											<svg width="39" height="38" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M9.55454 0.292351C8.71027 0.322083 7.62214 0.387512 7.12756 0.486393C6.37261 0.637409 5.65966 0.866371 5.06675 1.16571C4.37014 1.51738 3.74579 1.96607 3.20669 2.49925C2.66635 3.03347 2.21158 3.6525 1.85513 4.34357C1.55379 4.92773 1.32277 5.62965 1.16967 6.37325C1.06784 6.8681 1.00049 7.95399 0.969956 8.7957C0.958776 9.12712 0.952531 9.45868 0.951223 9.79028L0.948242 28.255C0.948242 28.4595 0.954531 28.9049 0.966847 29.2493C0.996858 30.0855 1.06291 31.1634 1.1628 31.6533C1.31519 32.4011 1.5464 33.1073 1.84852 33.6947C2.2036 34.3848 2.6565 35.0031 3.19476 35.5372C3.73406 36.0723 4.35905 36.5228 5.05664 36.876C5.64643 37.1744 6.35504 37.4033 7.10566 37.555C7.60522 37.6559 8.70152 37.7226 9.55124 37.7527C9.89841 37.7651 10.3479 37.7714 10.5552 37.7714L29.1958 37.7743C29.4023 37.7743 29.8519 37.7681 30.1995 37.7559C31.0438 37.7261 32.1319 37.6607 32.6264 37.5618C33.3814 37.4108 34.0944 37.1817 34.6873 36.8825C35.3839 36.5308 36.0082 36.0821 36.5473 35.549C37.0876 35.0147 37.5424 34.3957 37.8989 33.7047C38.2002 33.1204 38.4313 32.4186 38.5844 31.675C38.6862 31.1801 38.7535 30.0941 38.7841 29.2525C38.7965 28.9085 38.8028 28.4633 38.8028 28.258L38.8058 9.79324C38.8058 9.58867 38.7995 9.14332 38.7872 8.79897C38.7571 7.96272 38.6911 6.88486 38.5912 6.39495C38.4388 5.64712 38.2076 4.9409 37.9055 4.35358C37.5505 3.66348 37.0975 3.04509 36.5593 2.511C36.02 1.97589 35.395 1.52534 34.6974 1.17226C34.1076 0.873756 33.399 0.644855 32.6484 0.493263C32.1488 0.392391 31.0525 0.325676 30.2028 0.295498C29.8555 0.283108 29.4061 0.276882 29.1988 0.276882L10.5582 0.273926C10.2236 0.275177 9.88899 0.281319 9.55454 0.292351Z" fill="url(#paint0_linear_651_582)"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M26.4394 21.4922C26.1022 21.3251 24.4445 20.5172 24.1353 20.4058C23.8263 20.2944 23.6015 20.2387 23.3767 20.5729C23.1519 20.9072 22.5057 21.6593 22.309 21.8822C22.1123 22.105 21.9157 22.1329 21.5785 21.9657C21.2413 21.7986 20.1549 21.446 18.867 20.3084C17.8645 19.4231 17.1878 18.3296 16.9911 17.9953C16.7945 17.661 16.9702 17.4804 17.139 17.3139C17.2907 17.1644 17.4762 16.924 17.6448 16.7289C17.8134 16.5339 17.8696 16.3947 17.982 16.1719C18.0944 15.949 18.0382 15.754 17.9538 15.5869C17.8696 15.4198 17.1952 13.7763 16.9143 13.1077C16.6405 12.4566 16.3626 12.5448 16.1556 12.5345C15.9591 12.5248 15.7341 12.5228 15.5093 12.5228C15.2845 12.5228 14.9193 12.6064 14.6102 12.9406C14.3011 13.2749 13.4301 14.0827 13.4301 15.7261C13.4301 17.3696 14.6383 18.9574 14.8068 19.1802C14.9755 19.4031 17.1846 22.7757 20.567 24.222C21.3715 24.566 21.9996 24.7715 22.4892 24.9254C23.297 25.1795 24.0321 25.1437 24.613 25.0576C25.2608 24.9618 26.608 24.2499 26.889 23.4699C27.1699 22.69 27.1699 22.0214 27.0856 21.8822C27.0014 21.7429 26.7766 21.6593 26.4394 21.4922ZM20.287 29.8106H20.2825C18.2698 29.8098 16.2958 29.2745 14.5737 28.2625L14.1642 28.0217L9.91901 29.1245L11.0521 25.0259L10.7854 24.6057C9.66266 22.8373 9.06971 20.7933 9.07053 18.6947C9.07296 12.5707 14.1046 7.58848 20.2915 7.58848C23.2873 7.58964 26.1035 8.7465 28.2211 10.8459C30.3388 12.9453 31.5044 15.7359 31.5032 18.7037C31.5007 24.828 26.4692 29.8106 20.287 29.8106ZM29.8329 9.25055C27.2851 6.72466 23.8969 5.33294 20.2869 5.33155C12.8488 5.33155 6.79511 11.3258 6.7921 18.6938C6.79113 21.049 7.41252 23.3481 8.59338 25.3745L6.67892 32.2992L13.8327 30.441C15.8037 31.5056 18.0229 32.0666 20.2815 32.0676H20.2871C27.7244 32.0676 33.7787 26.0725 33.7817 18.7044C33.7831 15.1338 32.3808 11.7764 29.8329 9.25055Z" fill="white"></path> <defs> <linearGradient id="paint0_linear_651_582" x1="19.877" y1="0.273926" x2="19.877" y2="37.7744" gradientUnits="userSpaceOnUse"> <stop stop-color="#25CF43"></stop> <stop offset="1" stop-color="#61FD7D"></stop> </linearGradient> </defs> </svg>
+										</span>
+									</a>
+									<a href="#" class="btn btn--style_sci-2" target="_blank">
+										<span class="btn__icon icon">
+											<svg aria-hidden="true">
+												<use xlink:href="assets/img/icons/sprite/sprite.svg#viber--colorfull"></use>
+											</svg>
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<h3 class="mb-3xs title title--marked title--indet">Feel free to send us a message</h3>
+						<!-- form -->
+						<form action="#" class="form">
+							<div class="form__conten gy--items_m">
+								<div class="field-block">
+									<div class="field-block__list">
+										<!-- field -->
+										<div class="field">
+											<div class="field__content">
+												<div class="input">
+													<input type="text" required placeholder=" ">
+													<span class="input__placeholder">Name</span>
+												</div>
+											</div>
+										</div>
+										<!-- field -->
+										<div class="field">
+											<div class="field__content">
+												<div class="input">
+													<input type="tel" required placeholder=" ">
+													<span class="input__placeholder">Phone</span>
+												</div>
+											</div>
+										</div>
+										<!-- field -->
+										<div class="field">
+											<div class="field__content">
+												<div class="input">
+													<input type="email" required placeholder=" ">
+													<span class="input__placeholder">Email address</span>
+												</div>
+											</div>
+										</div>
+										<!-- field -->
+										<div class="field">
+											<div class="field__content">
+												<div class="input">
+													<textarea placeholder=" "></textarea>
+													<span class="input__placeholder">Message</span>
+												</div>
+											</div>
+										</div>
+										<!-- field -->
+										<div class="field">
+											<div class="field__content">
+												<label class="input">
+													<input type="checkbox" checked="" disabled="">
+													<span class="input__text">I agree of the processing of personal data</span>
+													<span class="input__control">
+														<span class="icon">
+															<svg aria-hidden="true">
+																<use xlink:href="assets/img/icons/sprite/sprite.svg#check"></use>
+															</svg>
+														</span>
+													</span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button class="w-sm-100% btn btn--style_bg btn--min-width" type="submit">
+									<span class="btn__value">Send</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}	

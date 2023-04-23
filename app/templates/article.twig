@@ -1,0 +1,151 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<div class="sketch">
+		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling-page"></div>
+		<figure class="sketch__bg sketch__bg--abstraction-2" role="presentation">
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" alt="Business services in Warsaw">
+			</picture>
+		</figure>
+		<div class="sketch__content">
+			<div class="container">
+				{% block breadcrumbs %}
+					{% include "./includes/@/breadcrumbs.twig" with { 
+						breadcrumbs: {
+							items:  [ 
+								{text: "Home"},
+								{text: "News"},
+								{text: "We pride ourselves on delivering accurate..."}
+							] 
+						}
+					} only %}
+				{% endblock breadcrumbs %}
+				<!-- boxes -->
+				<div class="boxes">
+					<main class="boxes__main">
+						<!-- article -->
+						<div class="card-record card-record--size_xl@md">
+							<figure class="card-record__img" role="presentation">
+								<img src="./assets/img/test/record-1.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+							</figure>
+							<div class="card-record__content">
+								<div class="card-record__meta-list">
+									<time class="meta" datetime="2023-06-15">15 June 2022</time>
+								</div>
+								<h1 class="card-record__title">
+									We pride ourselves on delivering accurate and timely accounting solutions that help
+								</h1>
+								<div class="card-record__text content content--loose">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas porta quis nunc eget ultricies. Sed volutpat quam sit amet feugiat auctor. Suspendisse nec leo quis felis tincidunt imperdiet. Donec facilisis lacus non auctor congue. Nam at quam et nunc volutpat sodales. Donec vitae enim at risus dapibus porttitor suscipit at leo. Phasellus vestibulum libero a sem dignissim bibendum. Nunc aliquet pharetra accumsan.
+									</p>
+	
+									<p>
+										Quisque convallis risus at ullamcorper tristique. Nulla fermentum ultricies enim eget eleifend. Ut sodales tempus <a href="#">pellentesque</a>. Proin feugiat id nibh non imperdiet. Vivamus nisi libero, fermentum eget dapibus et, faucibus sit amet dui. Ut ac mi euismod, luctus sem eu, facilisis mauris. Nunc tincidunt sollicitudin libero vitae tempor. Nullam vulputate ipsum a facilisis mollis. Quisque tempus orci quis nunc rhoncus, quis feugiat elit sodales. Nullam ac nisi et urna pharetra tempor vel vitae quam.
+									</p>
+	
+									<p>
+										<em>
+											Suspendisse arcu ipsum, maximus eget sem sed, convallis feugiat nibh. Nulla facilisi. Donec eget odio eget dui commodo rutrum. Nullam vitae consequat lacus, ac imperdiet urna. Mauris posuere purus dolor, ac suscipit mauris laoreet vitae. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla lacus feugiat, vestibulum massa a, imperdiet lorem. Cras rutrum consectetur bibendum.
+										</em>
+									</p>
+	
+									<p>
+										<b>
+											Proin viverra lectus nisl, eget feugiat sem iaculis vel. Vivamus ornare, dolor non tempus consequat, nibh orci ornare ante, id ultrices diam magna non nisi. Quisque ut vestibulum sem. Nam tincidunt in ligula vitae cursus. Phasellus eget eros ex.
+										</b>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- bottom -->
+						<hr class="my-xxl my-sm-l">
+						<div class="btns">
+							<div class="align-items-center gx-xs btns__list">
+								<b class="fz-20 fz-sm-18">Share:</b>
+								<a href="#" class="btn btn--type_icon btn--style_border" target="_blank">
+									<span class="btn__icon icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/sprite/sprite.svg#insta"></use>
+										</svg>
+									</span>
+								</a>
+								<a href="#" class="btn btn--type_icon btn--style_border" target="_blank">
+									<span class="btn__icon icon">
+										<svg aria-hidden="true">
+											<use xlink:href="assets/img/icons/sprite/sprite.svg#fb"></use>
+										</svg>
+									</span>
+								</a>
+							</div>
+						</div>
+					</main>
+					<aside class="gy--items_l mt-md-5xl boxes__side">
+						<h3 class="mb-xxs mb-md-xs title title--marked title--indet">More news</h3>
+						<!-- slider wrapper -->
+						<div class="slider slider--has_records">
+							<!-- slider -->
+							<div class="slider__slider slider__slider swiper">
+								<div class="card-record-layout card-record-layout--column swiper-wrapper">
+									<!-- slide -->
+									<div class="card-record swiper-slide">
+										<figure class="card-record__img" role="presentation">
+											<img src="./assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+										</figure>
+										<div class="card-record__content">
+											<div class="card-record__meta-list">
+												<time class="meta" datetime="2023-06-15">15 June 2022</time>
+											</div>
+											<h4 class="card-record__title">
+												<a href="#">Our team of experienced and qualified accountants</a>
+											</h4>
+										</div>
+									</div>
+									<!-- slide -->
+									<div class="card-record swiper-slide">
+										<figure class="card-record__img" role="presentation">
+											<img src="./assets/img/test/record-3.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+										</figure>
+										<div class="card-record__content">
+											<div class="card-record__meta-list">
+												<time class="meta" datetime="2023-06-15">15 June 2022</time>
+											</div>
+											<h4 class="card-record__title">
+												<a href="#">And challenges of businesses operating in Poland.</a>
+											</h4>
+										</div>
+									</div>
+									<!-- slide -->
+									<div class="card-record swiper-slide">
+										<figure class="card-record__img" role="presentation">
+											<img src="./assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+										</figure>
+										<div class="card-record__content">
+											<div class="card-record__meta-list">
+												<time class="meta" datetime="2023-06-15">15 June 2022</time>
+											</div>
+											<h4 class="card-record__title">
+												<a href="#">Our team of experienced and qualified accountants</a>
+											</h4>
+										</div>
+									</div>
+								</div>
+								<!-- controls slider -->
+								<div class="slider__controls">
+									<div class="slider__pagination"></div>
+									<div class="d-none ml-auto d-md-block btns">
+										<div class="btns__list">
+											<a href="#" class="link-3 fz-20">All news</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}	

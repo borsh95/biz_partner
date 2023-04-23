@@ -14,6 +14,73 @@ window.front = {
 },{}],2:[function(require,module,exports){
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+var _require = require('./../utils/utils'),
+  toggleOverflowDocument = _require.toggleOverflowDocument;
+/*
+	burger js	
+*/
+
+document.addEventListener('DOMContentLoaded', function () {
+  var burgerEl = document.querySelector('.header__burger');
+  var burgerContentEl = burgerEl.querySelector('.header__burger-content');
+  var toggleBurgerClass = 'js-toggle-burger';
+  var $togglerBurger = document.querySelector(".".concat(toggleBurgerClass));
+  var mediaQuery = window.matchMedia("(min-width: ".concat(window.front.breakpoints.md + 1, "px)"));
+  var isOpen = false;
+  mediaQuery.addListener(function () {
+    if (mediaQuery.matches && burgerEl.classList.contains('open')) {
+      toggleBurger($togglerBurger);
+    }
+  });
+
+  //Hamburger открытия мобильного меню
+  document.addEventListener('click', function (e) {
+    var togglerEl = e.target.closest(".".concat(toggleBurgerClass));
+    if (togglerEl) {
+      toggleBurger(togglerEl);
+    } else if (isOpen && !burgerContentEl.contains(e.target)) {
+      toggleBurger($togglerBurger);
+    }
+  });
+  document.addEventListener('action:closeBurger', function () {
+    if (isOpen) {
+      toggleBurger($togglerBurger);
+    }
+  });
+  function toggleBurger(togglerEl) {
+    if (!togglerEl) return;
+    togglerEl.classList.toggle('active');
+    var isActive = togglerEl.classList.contains('active');
+    isOpen = isActive;
+    var _iterator = _createForOfIteratorHelper(document.querySelectorAll(".".concat(toggleBurgerClass))),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var toggler = _step.value;
+        toggler.classList[isActive ? 'add' : 'remove']('active');
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    burgerEl.classList[isActive ? 'add' : 'remove']('open');
+    document.documentElement.classList[isActive ? 'add' : 'remove']('is-burger-open');
+    toggleOverflowDocument(isActive);
+    if (isActive) {
+      document.documentElement.dispatchEvent(new CustomEvent("action:closeSearch", {
+        bubbles: true,
+        cancelable: true
+      }));
+    }
+  }
+});
+},{"./../utils/utils":18}],3:[function(require,module,exports){
+"use strict";
+
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -80,7 +147,7 @@ if (Object.keys(watchedComponents).length) {
   compareStates(watchedComponents);
   window.addEventListener('resize', throttle(compareStates.bind(void 0, watchedComponents), 150));
 }
-},{"./../utils/utils.js":17}],3:[function(require,module,exports){
+},{"./../utils/utils.js":18}],4:[function(require,module,exports){
 "use strict";
 
 (function () {
@@ -128,9 +195,9 @@ if (Object.keys(watchedComponents).length) {
     init(this);
   });
 })();
-},{}],4:[function(require,module,exports){
-"use strict";
 },{}],5:[function(require,module,exports){
+"use strict";
+},{}],6:[function(require,module,exports){
 "use strict";
 
 require('./front');
@@ -138,7 +205,8 @@ require('./componentStates');
 require('./sliders');
 require('./counter');
 require('./tabs');
-},{"./componentStates":2,"./counter":3,"./front":4,"./sliders":6,"./tabs":7}],6:[function(require,module,exports){
+require('./burger');
+},{"./burger":2,"./componentStates":3,"./counter":4,"./front":5,"./sliders":7,"./tabs":8}],7:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -190,19 +258,92 @@ try {
       var _breakpoints3;
       options = {
         watchOverflow: true,
+        slidesPerView: 'auto',
+        watchSlidesVisibility: true,
         breakpoints: (_breakpoints3 = {
           320: {
             enabled: true,
-            slidesPerView: 'auto',
-            spaceBetween: 15,
-            watchSlidesVisibility: true
+            spaceBetween: 15
           }
         }, _defineProperty(_breakpoints3, window.front.breakpoints.sm, {
           spaceBetween: 20
         }), _defineProperty(_breakpoints3, window.front.breakpoints.md, {
-          enabled: false,
+          enabled: true,
           spaceBetween: 0
         }), _breakpoints3)
+      };
+    } else if (sliderEl.closest('.slider--has_team')) {
+      var _breakpoints4;
+      options = {
+        watchOverflow: true,
+        slidesPerView: 'auto',
+        watchSlidesVisibility: true,
+        breakpoints: (_breakpoints4 = {
+          320: {
+            enabled: true,
+            spaceBetween: 15
+          }
+        }, _defineProperty(_breakpoints4, window.front.breakpoints.sm, {
+          enabled: true,
+          spaceBetween: 20
+        }), _defineProperty(_breakpoints4, window.front.breakpoints.md, {
+          enabled: false,
+          spaceBetween: 0
+        }), _breakpoints4)
+      };
+    } else if (sliderEl.closest('.slider--has_results')) {
+      var _breakpoints5;
+      options = {
+        watchOverflow: true,
+        slidesPerView: 'auto',
+        watchSlidesVisibility: true,
+        breakpoints: (_breakpoints5 = {
+          320: {
+            enabled: true,
+            spaceBetween: 15
+          }
+        }, _defineProperty(_breakpoints5, window.front.breakpoints.sm, {
+          enabled: true,
+          spaceBetween: 20
+        }), _defineProperty(_breakpoints5, window.front.breakpoints.md, {
+          enabled: false,
+          spaceBetween: 0
+        }), _breakpoints5)
+      };
+    } else if (sliderEl.closest('.slider--has_item-list')) {
+      var _breakpoints6;
+      options = {
+        watchOverflow: true,
+        slidesPerView: 'auto',
+        watchSlidesVisibility: true,
+        breakpoints: (_breakpoints6 = {
+          320: {
+            enabled: true,
+            slidesPerView: 1
+          }
+        }, _defineProperty(_breakpoints6, window.front.breakpoints.sm, {
+          enabled: true,
+          spaceBetween: 60,
+          slidesPerView: 2
+        }), _defineProperty(_breakpoints6, window.front.breakpoints.md, {
+          enabled: false,
+          spaceBetween: 0
+        }), _breakpoints6)
+      };
+    } else if (sliderEl.closest('.slider--has_full-card')) {
+      options = {
+        watchOverflow: true,
+        slidesPerView: 'auto',
+        watchSlidesVisibility: true,
+        breakpoints: _defineProperty({
+          320: {
+            enabled: true,
+            slidesPerView: 1,
+            spaceBetween: 60
+          }
+        }, window.front.breakpoints.sm, {
+          enabled: false
+        })
       };
     }
     slider(sliderEl, options);
@@ -212,7 +353,7 @@ try {
 } finally {
   _iterator.f();
 }
-},{"./../plugins/slider":11}],7:[function(require,module,exports){
+},{"./../plugins/slider":12}],8:[function(require,module,exports){
 "use strict";
 
 function findIndex($obj, $item) {
@@ -267,7 +408,7 @@ $(document).on('click', '[data-tab]', function () {
   $tabsItem.addClass('active');
   initTabsItem($tabs, $tabsItem);
 });
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 require('./base');
@@ -425,11 +566,11 @@ window.addEventListener('DOMContentLoaded', function () {
       setHeightItem();
     });
   });
-  $(this.document).on('mouseenter', function (e) {
-    console.log(e);
+  $(document).on('click', '.menu__link-arr', function (e) {
+    $(this).closest('li').toggleClass('open').find('.menu__submenu').slideToggle(200);
   });
 });
-},{"./base":1,"./chunks":5,"./plugins/select":10,"./state/actions":12,"./state/createStore":13,"./state/initialState":14,"./state/rootReducer":15,"./utils/utils":17}],9:[function(require,module,exports){
+},{"./base":1,"./chunks":6,"./plugins/select":11,"./state/actions":13,"./state/createStore":14,"./state/initialState":15,"./state/rootReducer":16,"./utils/utils":18}],10:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -795,7 +936,7 @@ var Options = function () {
   }
 }();
 module.exports = Options;
-},{"./../utils/utils":17}],10:[function(require,module,exports){
+},{"./../utils/utils":18}],11:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1090,7 +1231,7 @@ $.fn.select = function (options) {
   return instances.length === 1 ? instances[0] : instances.length ? instances : null;
 };
 exports = Select;
-},{"./../utils/utils":17,"./options":9}],11:[function(require,module,exports){
+},{"./../utils/utils":18,"./options":10}],12:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1139,7 +1280,7 @@ var slider = function slider(selector) {
   return new Swiper($sliderInit, setings.options);
 };
 module.exports = slider;
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 "use strict";
 
 var _require = require('./types'),
@@ -1150,7 +1291,7 @@ module.exports.changeTheme = function (data) {
     data: data
   };
 };
-},{"./types":16}],13:[function(require,module,exports){
+},{"./types":17}],14:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1214,7 +1355,7 @@ module.exports = /*#__PURE__*/function () {
   }]);
   return createStore;
 }();
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1232,7 +1373,7 @@ var normalize = function normalize(state) {
   return _objectSpread({}, state);
 };
 module.exports = storage('state') ? normalize(storage('state')) : defaultState;
-},{"./../utils/utils":17}],15:[function(require,module,exports){
+},{"./../utils/utils":18}],16:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1258,14 +1399,14 @@ module.exports = function rootReducer(state, action) {
   storage('state', changeState);
   return changeState;
 };
-},{"./../utils/utils":17,"./types":16}],16:[function(require,module,exports){
+},{"./../utils/utils":18,"./types":17}],17:[function(require,module,exports){
 "use strict";
 
 var CHANGE_THEME = 'CHANGE_THEME';
 module.exports = {
   CHANGE_THEME: CHANGE_THEME
 };
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
@@ -1446,4 +1587,4 @@ function isSameType(item1, item2) {
   return Object.prototype.toString.call(item1) === Object.prototype.toString.call(item2);
 }
 ;
-},{}]},{},[8])
+},{}]},{},[9])

@@ -1,0 +1,44 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<div class="container container--xxl">
+		<div class="not-found-b">
+			<div class="not-found-b__content">
+				<h1 class="not-found-b__title">
+					<svg width="897" height="350" viewBox="0 0 897 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<g filter="url(#filter0_d_656_590)">
+						<path d="M22 252.798V206.729L161.547 19.0718H233.435L96.8482 206.729L63.4413 197.008H296.443V252.798H22ZM181.422 314.928V252.798L183.537 197.008V141.641H248.236V314.928H181.422Z" fill="#3A74BE"/>
+						<path d="M443.794 320C419.549 320 397.842 314.083 378.672 302.249C359.502 290.133 344.419 272.663 333.425 249.84C322.43 227.017 316.933 199.403 316.933 167C316.933 134.597 322.43 106.983 333.425 84.1602C344.419 61.337 359.502 44.0083 378.672 32.174C397.842 20.058 419.549 14 443.794 14C468.32 14 490.028 20.058 508.916 32.174C528.086 44.0083 543.169 61.337 554.163 84.1602C565.158 106.983 570.655 134.597 570.655 167C570.655 199.403 565.158 227.017 554.163 249.84C543.169 272.663 528.086 290.133 508.916 302.249C490.028 314.083 468.32 320 443.794 320ZM443.794 262.097C455.352 262.097 465.36 258.856 473.818 252.376C482.557 245.895 489.323 235.61 494.116 221.522C499.19 207.434 501.727 189.26 501.727 167C501.727 144.74 499.19 126.566 494.116 112.478C489.323 98.3895 482.557 88.105 473.818 81.6243C465.36 75.1436 455.352 71.9033 443.794 71.9033C432.517 71.9033 422.509 75.1436 413.77 81.6243C405.313 88.105 398.547 98.3895 393.472 112.478C388.68 126.566 386.283 144.74 386.283 167C386.283 189.26 388.68 207.434 393.472 221.522C398.547 235.61 405.313 245.895 413.77 252.376C422.509 258.856 432.517 262.097 443.794 262.097Z" fill="#3A74BE"/>
+						<path d="M600.557 252.798V206.729L740.104 19.0718H811.992L675.405 206.729L641.998 197.008H875V252.798H600.557ZM759.979 314.928V252.798L762.094 197.008V141.641H826.793V314.928H759.979Z" fill="#3A74BE"/>
+						</g>
+						<defs>
+						<filter id="filter0_d_656_590" x="0" y="0" width="897" height="350" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+						<feOffset dy="8"/>
+						<feGaussianBlur stdDeviation="11"/>
+						<feComposite in2="hardAlpha" operator="out"/>
+						<feColorMatrix type="matrix" values="0 0 0 0 0.227451 0 0 0 0 0.454902 0 0 0 0 0.745098 0 0 0 0.28 0"/>
+						<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_656_590"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_656_590" result="shape"/>
+						</filter>
+						</defs>
+					</svg>
+					<span class="sr-only">Page not found</span>
+				</h1>
+				<p>
+					We're sorry, but it seems you've landed <br> on a page that doesn't exist. 
+				</p>
+				<a href="/" class="not-found-b__btn btn btn--style_bg btn--min-width">
+					<span class="btn__value">Home page</span>
+				</a>
+			</div>
+			<figure class="not-found-b__bg" role="presentation">
+				<picture>
+					<source srcset="./assets/img/bg/not-found-bg.webp" type="image/webp">
+					<img src="./assets/img/bg/not-found-bg.png" loading="lazy" alt="">
+				</picture>
+			</figure>
+		</div>
+	</div>
+{% endblock %}	

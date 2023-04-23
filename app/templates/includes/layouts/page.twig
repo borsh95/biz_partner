@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="ArtBro">
-	<title>{{ title|length ? title : 'New' }}</title>
+	<title>{{ page.title.text ?? 'Page' }}</title>
 	<!-- uikit css -->
 	<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
 	<!-- swiper css -->

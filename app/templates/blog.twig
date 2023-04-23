@@ -1,0 +1,233 @@
+{% extends "layouts/page.twig" %}
+
+{% block content %}	
+	<div class="container">
+		{% block breadcrumbs %}
+			{% include "./includes/@/breadcrumbs.twig" with { 
+				breadcrumbs: {
+					items:  [ 
+						{text: "Home"},
+						{text: "News"}
+					] 
+				}
+			} only %}
+		{% endblock breadcrumbs %}
+	</div>
+
+	<div class="sketch">
+		<figure class="sketch__bg sketch__bg--abstraction-2" role="presentation">
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" alt="">
+			</picture>
+		</figure>
+		<figure class="sketch__bg sketch__bg--abstraction-2" role="presentation">
+			<picture>
+				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
+				<img src="./assets/img/bg/abstraction-1.png" alt="">
+			</picture>
+		</figure>
+
+		<div class="sketch__content">
+			<div class="container">
+				<h1 class="page__title title title--marked title--indet">News</h1>
+				<!-- records list -->
+				<div class="card-record-layout">
+					<!-- item -->
+					<div class="card-record card-record--size_xl@md">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-1.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">We pride ourselves on delivering accurate and timely accounting solutions that help</a>
+							</h4>
+							<div class="card-record__text">
+								In addition to our accounting services, we also provide business consulting and advisory services to help our clients improve their operations and achieve their goals.
+							</div>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">Our team of experienced and qualified accountants</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-3.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">And challenges of businesses operating in Poland.</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-1.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">We pride ourselves on delivering accurate and timely accounting solutions that help</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">Our team of experienced and qualified accountants</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-3.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">And challenges of businesses operating in Poland.</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-1.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">We pride ourselves on delivering accurate and timely accounting solutions that help</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-2.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">Our team of experienced and qualified accountants</a>
+							</h4>
+						</div>
+					</div>
+					<!-- item -->
+					<div class="card-record">
+						<figure class="card-record__img" role="presentation">
+							<img src="./assets/img/test/record-3.jpg" loading="lazy" alt="We pride ourselves on delivering accurate and timely accounting solutions that help">
+						</figure>
+						<div class="card-record__content">
+							<div class="card-record__meta-list">
+								<time class="meta" datetime="2023-06-15">15 June 2022</time>
+							</div>
+							<h4 class="card-record__title">
+								<a href="#">And challenges of businesses operating in Poland.</a>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<!-- pagination -->
+				<div class="mt-4xl mt-sm-s pagination">
+					<ul class="pagination__list">
+						<li class="pagination__item pagination__item--prev">
+							<button type="button" class="btn btn--type_icon btn--style_pagination" disabled type="button">
+								{% include "@/icon.twig" with {
+									icon: {
+										params: {
+											orientation: "left"
+										},
+										class: ["btn__icon"],
+										name: "arrow"
+									}
+								} %}
+							</button> 
+						</li>
+						<li class="pagination__item" aria-current="page">
+							<button class="btn btn--type_icon btn--style_pagination" type="button">
+								<span class="btn__value">01</span>
+							</button>   
+						</li>
+						<li class="pagination__item">
+							<button class="btn btn--type_icon btn--style_pagination" type="button">
+								<span class="btn__value">02</span>
+							</button> 
+						</li>
+						<li class="pagination__item">
+							<button class="btn btn--type_icon btn--style_pagination" type="button">
+								<span class="btn__value">03</span>
+							</button>  
+						</li>
+						<li class="pagination__item">
+							<button class="btn btn--type_icon btn--style_pagination" type="button">
+								<span class="btn__value">04</span>
+							</button>  
+						</li>
+						<li class="pagination__item pagination__item--dots">
+							{% include "@/icon.twig" with {
+								icon: {
+									name: "dots"
+								}
+							} %}
+						</li>
+						<li class="pagination__item">
+							<button class="btn btn--type_icon btn--style_pagination" type="button">
+								<span class="btn__value">22</span>
+							</button> 
+						</li>
+						<li class="pagination__item pagination__item--next">
+							<button type="button" class="btn btn--type_icon btn--style_pagination" type="button">
+								{% include "@/icon.twig" with {
+									icon: {
+										params: {
+											orientation: "right"
+										},
+										class: ["btn__icon"],
+										name: "arrow"
+									}
+								} %}
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}	

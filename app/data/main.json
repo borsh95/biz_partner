@@ -1,5 +1,8 @@
 {
 	"page": {
+		"title": {
+			"text": "Main"
+		},
 		"body": {
 			"params_custom": {
 				"pt": 0
@@ -9,6 +12,11 @@
 			"params_custom": {
 				"pt": 0
 			}
+		}
+	},
+	"header": {
+		"params": {
+			"state": "transparent"
 		}
 	}
 }

@@ -181,7 +181,10 @@ window.addEventListener('DOMContentLoaded', function () {
 		});
 	})
 
-	$(this.document).on('mouseenter', function(e) {
-		console.log(e);
-	})
+	$(document).on('click', '.menu__link-arr', function(e) {
+		$(this).closest('li')
+			.toggleClass('open')
+			.find('.menu__submenu')
+			.slideToggle(200);
+	});
 });

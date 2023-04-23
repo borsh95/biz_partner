@@ -10,7 +10,7 @@
         min-width: 0;
 
         & + * {
-            margin-left: 30px;
+            margin-left: rem(32);
         }
     }
 
@@ -20,7 +20,7 @@
 
     &__side {
         flex-shrink: 0;
-        width: 350px;
+        width: 379px;
 
         &:empty {
             display: none;
@@ -94,7 +94,7 @@
 .section {
 	$this: &;
 
-	margin: rem(170) 0;
+	margin: rem(140) 0;
 
 	&:first-child {
 		margin-top: 0;
@@ -111,24 +111,49 @@
 	}
 
 	&__bg {
-		z-index: $z-index-n;
+		position: absolute;
 
-		&,
-		&::before {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
+		&--oblique-filling {
+			@at-root [class*="section__bg--oblique-filling"] {
+				position: absolute;
+				width: 100%;
+				height: 563px;
+				max-height: 90vh;
+				overflow: hidden;
+			
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					right: 0;
+					height: 100%;
+					width: 9999px;
+					background-color: var(--color-bg-4);
+					transform-origin: 100% 0;
+					transform: skewX(-40deg);
+				}
+			}
+
+			&--right {
+				top: 140px;
+				left: 52%;
+				right: auto;
+				max-height: calc(100vh - 140px);
+
+				&::before {
+					left: 0;
+					right: auto;
+					transform-origin: 0 100%;
+					transform: skewX(-31deg);
+				}
+			}
 		}
 
-		&::before {
-			content: "";
-			background: linear-gradient(0deg, rgba(0, 32, 94, 0.8), rgba(0, 32, 94, 0.8));
-		}
-
-		img {
-			width: 100%;
+		&--pos {
+			&_left-bottom {
+				left: 0;
+				bottom: 0;
+			}
 		}
 	}
 
@@ -146,14 +171,22 @@
 	&#{&}--inside {
 		position: relative;
 		margin: 0;
-		padding: rem(170) 0;
+		padding: rem(140) 0;
 	}
 
 	@include media(xxl) {
-		margin: rubberSize(100, 170, $lg, $xxl) 0;
+		margin: rubberSize(100, 140, $lg, $xxl) 0;
 
 		&#{&}--inside {
-			padding: rubberSize(100, 170, $lg, $xxl) 0;
+			padding: rubberSize(100, 140, $lg, $xxl) 0;
+		}
+	}
+
+	@include media(lg) {
+		margin: 90px 0;
+
+		&#{&}--inside {
+			padding: 90px 0;
 		}
 	}
 

@@ -1,5 +1,5 @@
 <!-- BREAD CRUMBS -->
-<div {% view "@_default" with {
+<div {% include "@/_default.twig" with {
 	_default: {
 		id: breadcrumbs.id,
 		default_class: "breadcrumbs",
@@ -9,19 +9,17 @@
 		data: breadcrumbs.data
 	}
 } %}>
-	<div class="container">
-		<ul class="breadcrumbs__list">
-			{% for item in breadcrumbs.items %}
-				{% if loop.last %}
-					<li class="breadcrumbs__item">
-						<a class="breadcrumbs__link">{{ item.text }}</a>
-					</li>
-				{% else %}
-					<li class="breadcrumbs__item">
-						<a class="breadcrumbs__link" href="{{ item.href|default('#') }}">{{ item.text }}</a>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
+	<ul class="breadcrumbs__list">
+		{% for item in breadcrumbs.items %}
+			{% if loop.last %}
+				<li class="breadcrumbs__item">
+					<a class="breadcrumbs__link">{{ item.text }}</a>
+				</li>
+			{% else %}
+				<li class="breadcrumbs__item">
+					<a class="breadcrumbs__link" href="{{ item.href|default('#') }}" aria-current="page">{{ item.text }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
 </div>
