@@ -21,7 +21,7 @@ $brs-card: 12px;
 $control-h: 52;
 
 :root {	
-	--header-height: 108px;
+	--header-height: 109px;
 	/* spacings */
 	--container-offset-x: 30px;
 	--container-width: 1260px;
@@ -36,11 +36,21 @@ $control-h: 52;
 	--bsh-focus: 0 0 0 0.1rem var(--color-focus-inner), 
 	0 0 0 .4rem var(--color-focus-outer);
 
+	@include media(xl) {
+		--header-height: 97.5px;
+	}
+
+	@include media(lg) {
+		--header-height: 92.7px;
+	}
+
 	@include media(md) {
+		--header-height: 71.5px;
 		--container-offset-x: 20px;
 	}
 
 	@include media(sm) {
+		--header-height: 62.2px;
 		--container-offset-x: 15px;
 	}
 }

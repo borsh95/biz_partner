@@ -4,7 +4,7 @@
 	<div class="container">
 		<h1 class="text-center">{{ project_name }}</h1>
 		<div class="mb-4e">
-			<span>Последнее обновление: </span> {{ date().toLocaleString("ru", { year: 'numeric', month: 'numeric', day: 'numeric'}) }}
+			<span>Public pages: </span> {{ date().toLocaleString("ru", { year: 'numeric', month: 'numeric', day: 'numeric'}) }}
 		</div>
 		<div class="row-cols-1 g-40">
 			{% for key, item in page_links %}

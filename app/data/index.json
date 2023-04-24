@@ -1,21 +1,15 @@
 {
-	"project_name": "Encon",
+	"project_name": "Biz partner",
 	"page_links": {
-		"Служебные": [{
-			"href": "./front_docs.html",
-			"text": "Документация"
-		}, {
-			"href": "./front_components.html",
-			"text": "Компоненты"
-		}, {
+		"Official": [{
 			"href": "./front_icons.html",
-			"text": "Иконки"
+			"text": "Icons"
 		}],
-		"Публичные страницы:": [{
+		"Public pages:": [{
 			"href": "./main.html",
 			"text": "Main"
 		}, {
-			"href": "./main.html",
+			"href": "./blog.html",
 			"text": "Blog"
 		}, {
 			"href": "./article.html",
