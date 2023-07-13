@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
-	//Hamburger открытия мобильного меню
 	document.addEventListener('click', function (e) {
 		const togglerEl = e.target.closest(`.${toggleBurgerClass}`);
 

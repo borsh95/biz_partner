@@ -284,7 +284,7 @@
 					--offset-x: 15px;
 					--offset-y: 15px;
 					
-					flex-wrap: nowrap;
+					justify-content: center;
 					width: initial !important;
 					height: auto !important;
 					transform: translate(0) !important;
@@ -509,6 +509,7 @@
 					--offset-x: #{rem(120)};
 					--offset-y: #{rem(120)};
 
+					padding-bottom: rem(150);
 					width: auto;
 					transform: none !important;
 
@@ -588,17 +589,17 @@
 .modal {
 	.uk-modal-dialog {
 		width: 100%;
-		max-width: 580px !important;
-		border-radius: 0; 
+		max-width: 608px !important;
+		border-radius: 2px; 
 	}
 
 	&__close {
 		position: absolute;
-		top: rem(19);
+		top: rem(20);
 		right: rem(19);
 		padding: 0;
-		width: 22px;
-		height: 22px;
+		width: 14px;
+		height: 14px;
 		color: var(--color-gray);
 		fill: var(--color-gray);
 		opacity: 1;
@@ -616,8 +617,6 @@
 	}
 
 	&__content {
-		// margin-right: -#{rem(13)};
-		padding-right: rem(14);
 		@include scrollbars(5px, var(--color-primary), #F0F0F0);
 	}
 

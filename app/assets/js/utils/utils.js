@@ -1,5 +1,3 @@
-
-// Сравнение объектов и массивов по элементно (не по ссылке)
 exports.deepCompare = function (obj1, obj2) {
 	if (obj1 === obj2) return true;
 
@@ -18,7 +16,6 @@ exports.deepCompare = function (obj1, obj2) {
 	return true;
 };
 
-// глубокое слияние объектов
 exports.deepMerge = function (obj1, obj2) {
 	if (!isObject(obj1) && !isArray(obj1) || !isSameType(obj1, obj2)) {
 		if (isArray(obj2) || isObject(obj2)) {
@@ -74,14 +71,20 @@ exports.getCoords = function(el) {
 };
 
 exports.toggleOverflowDocument = function (is) {
+	const bodyEl = document.body;
+
 	if (is) {
-		const scrollBarWidth = window.innerWidth - document.body.clientWidth;
-		document.body.style.paddingRight = scrollBarWidth + "px";
-		document.body.style.overflow = 'hidden';
+		const scrollBarWidth = window.innerWidth - bodyEl.clientWidth;
+		bodyEl.style.paddingRight = scrollBarWidth + "px";
+		bodyEl.style.overflow = 'hidden';
+		bodyEl.style.setProperty("--scrollbar-size", scrollBarWidth + "px");
 	} else {
-		document.body.style.overflow = '';
-		document.body.style.paddingRight = "";
+		bodyEl.style.overflow = '';
+		bodyEl.style.paddingRight = "";
+		bodyEl.style.setProperty("--scrollbar-size", "");
 	}
+
+	bodyEl.classList.toggle('is-overflow', is);
 };
 
 exports.isElem = function (selector) {

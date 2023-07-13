@@ -3,7 +3,7 @@ const slider = function (selector, option = {}) {
 	const $slider = (typeof selector === 'string') ? document.querySelector(selector) : selector;
 	const $sliderWrap = $slider.closest('.slider');
 	const $sliderInit = $slider.querySelector('.slider__slider');
-	console.log($slider)
+
 	const setings = {
 		navigation: $sliderWrap.querySelector('.slider__nav-btn--prev') ?? $sliderWrap.querySelector('.slider__nav-btn--next'),
 		pagination: $sliderWrap.querySelector('.slider__pagination'),

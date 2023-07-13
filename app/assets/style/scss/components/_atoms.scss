@@ -530,7 +530,7 @@
     .table &,
     .modal & {
         position: static;
-        max-width: none; // в модалке плохо выглядело place_administration
+        max-width: none; 
     }
 
     .modal .filter .select.active &,

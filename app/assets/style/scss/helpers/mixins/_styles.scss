@@ -21,13 +21,9 @@
 }
 
 @mixin scrollbars($size: 8px, $fg: color('primary'), $bg: color('primary')) {
-    // для firefox
     scrollbar-color: $fg $bg;
-    /* «цвет ползунка» «цвет полосы скроллбара» */
     scrollbar-width: thin;
-    /* толщина */
 
-    // Для Chrome
     &::-webkit-scrollbar {
         width: $size;
         height: $size;

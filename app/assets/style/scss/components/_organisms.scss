@@ -51,13 +51,20 @@
 		}
 	}
 
+	&__container {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
 	&__content {
 		position: relative;
+		flex-grow: 1;
 		padding-top: calc(var(--header-height) + #{rem(80)});
 		padding-left: em(73, 24);
 		padding-bottom: rem(44);
 		max-width: em(892, 24);
-		min-height: 962px;
+		//min-height: 962px;
 		font-size: 24px;
 
 		> * {
@@ -95,9 +102,13 @@
 	}
 
 	&--style_2 {
+		#{$this}__container {	
+			min-height: calc(100vh - var(--header-height));
+		}
+
 		#{$this}__content {
 			padding-left: 50px;
-			min-height: 773px;
+			//min-height: 773px;
 		}
 
 		#{$this}__text {
@@ -107,13 +118,17 @@
 
 	@include media(xl, xxl) {
 		&__content {
-			min-height: rubberSize(600, 962, $lg, $xxl);
-			font-size: rubberSize(20, 24, $lg, $xxl)
+			//min-height: rubberSize(600, 962, $lg, $xxl);
+			font-size: rubberSize(20, 24, $lg, $xxl);
+
+			.breadcrumbs + & {
+				padding-top: rubberSize(80, 160, $xl, $xxl)
+			}
 		}
 
 		&--style_2 {
 			#{$this}__content {
-				min-height: rubberSize(500, 773, $lg, $xxl);
+				//min-height: rubberSize(500, 773, $lg, $xxl);
 			}
 		}
 	}
@@ -121,18 +136,12 @@
 	@include media(xl) {
 		&__content {
 			padding-left: 40px;
-			min-height: 500px;
+			//min-height: 500px;
 			max-width: 740px;
 			font-size: 20px;
 
 			.breadcrumbs + & {
-				padding-top: rubberSize(40, 160, $lg, $xxl)
-			}
-		}
-
-		&--style_2 {
-			#{$this}__content {
-				min-height: 500px;
+				padding-top: rubberSize(40, 80, $lg, $xxl)
 			}
 		}
 	}
@@ -151,6 +160,7 @@
 		&__container {
 			display: flex;
 			flex-direction: column;
+			min-height: initial;
 		}
 
 		&__content {

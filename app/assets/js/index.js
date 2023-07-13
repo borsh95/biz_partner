@@ -1,25 +1,20 @@
 require('./base');
 require('./chunks');
-require('./plugins/select');
 
-const { isElem, throttle } = require('./utils/utils');
-const createStore = require('./state/createStore');
-const initialState = require('./state/initialState');
-const rootReducer = require('./state/rootReducer');
-const actions = require('./state/actions');
+const { throttle, toggleOverflowDocument } = require('./utils/utils');
 
 window.addEventListener('DOMContentLoaded', function () {
 	{
 		const headerEl = document.querySelector('header');
 		const rootEl = document.documentElement;
-	
+
 		const setVariableHeightHeader = (el) => {
 			rootEl.style.setProperty("--header-height", el.getBoundingClientRect().height + "px");
 		}
-	
+
 		if (headerEl) {
 			setTimeout(() => { setVariableHeightHeader(headerEl) }, 0);
-	
+
 			['resize', 'load', 'scroll'].forEach(listener => {
 				window.addEventListener(listener, throttle(function () {
 					setVariableHeightHeader(headerEl);
@@ -82,7 +77,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		const $selects = $('.select');
 		const toggleFilledField = (selectEl) => {
 			const instanceSelect = $(selectEl).data().instance
-			const isFilled = !!(instanceSelect.isFilled 
+			const isFilled = !!(instanceSelect.isFilled
 				|| instanceSelect?.instanceOptions?.state?.options?.itemsActive?.length);
 
 			$(selectEl)
@@ -93,7 +88,6 @@ window.addEventListener('DOMContentLoaded', function () {
 		$selects.select();
 		$selects.each((_, item) => toggleFilledField(item));
 
-		// Срабатывает после обновления по ajax
 		$(document).on('ajax:update', function (e) {
 			$(e.target).hasClass('select') && $(e.target).select();
 			$(e.target).find('.select').select();
@@ -106,7 +100,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		$(document).on('click', function (e) {
 			const fieldEl = e.target.closest('.field');
 			const focusedField = document.querySelector('.field.focussed');
-			
+
 			if (fieldEl) {
 				const selectEl = e.target.closest('.select');
 				const isActiveSelect = selectEl.classList.contains('active')
@@ -120,7 +114,7 @@ window.addEventListener('DOMContentLoaded', function () {
 				}, 10);
 
 				if (fieldEl === focusedField) return;
-			} 
+			}
 
 			if (focusedField) {
 				focusedField.classList.remove('focussed');
@@ -155,7 +149,6 @@ window.addEventListener('DOMContentLoaded', function () {
 				controls
 			});
 
-			// Настройка поведения карты
 			map.behaviors.disable(['scrollZoom'])
 		}
 
@@ -165,6 +158,38 @@ window.addEventListener('DOMContentLoaded', function () {
 			})
 		}
 	}
+
+	{
+		const mediaFromMd = window.matchMedia(`(min-width: ${window.front.breakpoints.md + 1}px)`);
+		const $itemWithMenu = $('.menu__list > .menu__item')
+			.filter((_, item) => item.querySelector('.menu__submenu'));
+		let isInit = false;
+
+		const mouseBehaviorHandler = (e) => {
+			toggleOverflowDocument(e.type === "mouseenter");
+		};
+		const toggleInit = function() {
+			if (mediaFromMd.matches) {
+				if (isInit) return false;
+
+				$itemWithMenu.on('mouseenter', mouseBehaviorHandler);
+				$itemWithMenu.on('mouseleave', mouseBehaviorHandler);
+
+				isInit = true;
+			} else {
+				if (!isInit) return false;
+
+				$itemWithMenu.off('mouseenter', mouseBehaviorHandler);
+				$itemWithMenu.off('mouseleave', mouseBehaviorHandler);
+
+				isInit = false;
+			}
+		}	
+
+		toggleInit();
+		window.addEventListener('resize', throttle(toggleInit, 150));
+	}
+
 
 	$('.js-card-service').each((_, item) => {
 		const navEl = $('.card-service__nav', item).get(0);
@@ -176,15 +201,15 @@ window.addEventListener('DOMContentLoaded', function () {
 		};
 		setHeightItem();
 
-		$(item).on('mouseenter', function() {
+		$(item).on('mouseenter', function () {
 			setHeightItem();
 		});
-	})
+	});
 
-	$(document).on('click', '.menu__link-arr', function(e) {
+	$(document).on('click', '.menu__link-arr', function (e) {
 		$(this).closest('li')
 			.toggleClass('open')
-			.find('.menu__submenu')
+			.find('.menu__submenu').first()
 			.slideToggle(200);
 	});
 });

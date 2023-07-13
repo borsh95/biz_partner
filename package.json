@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"tasks": "node tasks"
+		"tasks": "node tasks",
+		"dev": "gulp"
 	},
 	"keywords": [],
 	"author": "",

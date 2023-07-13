@@ -4,6 +4,9 @@
 	
 	{% if lvl != 0 %}
 		<div class="menu__submenu menu__submenu--lvl_{{ lvl }}">
+		{% if lvl == 1 %}
+			<div class="menu__submenu-container">
+		{% endif %}
 	{% endif %}
 	<ul {% include "@/_default.twig" with {
 			_default: {
@@ -21,7 +24,8 @@
 					params_custom: item.params_custom,
 					params_boolean: {
 						"menu__item--hang": item.burger,
-						"active": not item.link.href
+						"has-submenu": item.submenu and lvl > 0,
+						"active": item.active
 					},
 					data: item.data
 				}
@@ -37,7 +41,7 @@
 					} %}
 				{% endif %}
 				
-				<a class="menu__link"{% if item.link.href %} href="{{ item.link.href }}"{% endif %}>
+				<a {% if item.link.href %} href="{{ item.link.href }}"{% endif %} class="menu__link">
 					<span>{{ item.link.text }}</span>
 					{% if item.submenu %}
 						<span class="menu__link-arr icon">
@@ -55,7 +59,10 @@
 		{% endfor %}
 	</ul>
 	{% if lvl != 0 %}
-	</div>
+		{% if lvl == 1 %}
+			</div>
+		{% endif %}
+		</div>
 	{% endif %}
 {% endmacro %}
 

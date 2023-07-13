@@ -1,10 +1,10 @@
-{% set title = "Компоненты" %}
+{% set title = "Components" %}
 {% extends "layouts/front.twig" %}
 
 {% block content %}	
 	{% macro color_item(item) %}
 		<li class="f-colors__item">
-			<div class="f-colors__color" uk-tooltip="Кликните для копирования" data-copy="var(--color-{{ item.name }})" style="background: var(--color-{{ item.name }})"></div>
+			<div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-{{ item.name }})" style="background: var(--color-{{ item.name }})"></div>
 			<div class="f-colors__title">{{ item.name }}</div>
 		</li>
 	{% endmacro %}
@@ -13,16 +13,13 @@
 			<div class="field__inner">
 				<input class="js-toggler-theme" type="checkbox">
 				<span class="field__mark"></span>
-				<span class="field__text">Включить темную тему</span>
+				<span class="field__text">Enable Dark theme</span>
 			</div>
 		</label>
-		<!-- Общее -->
-		<h2 class="text-center">Общее</h2>
-		<pre>
-			Компонент одного вида ВСЕГДА имеет класс по умолчанию - baseClass (btn, table, accordion, product-card, ...).  <br> Ком-нт имеющий в своем роде разные размеры, цвета, направлени, стилистику и др. отличительный особенности, именуется дополнительным классом c <b>МОДИФИКАТОРОМ</b> baseClass--имяМодиф_значениеМодиф: baseClass--bg_red, baseClass--size_s, baseClass--style_2; 
-		</pre>
-		<!-- Цветовая схема -->
-		<h2 class="text-center">Цветовая схема</h2>
+	
+		<h2 class="text-center">General</h2>
+
+		<h2 class="text-center">Colors</h2>
 		<div class="f-colors">
 			{# ------ list ----- #}
 			{% set colors = {
@@ -77,8 +74,8 @@
 				{% endfor %}
 			</ul>
 		</div>
-		<!-- Отступы -->
-		<h2 class="text-center">Отступы</h2>
+	
+		<h2 class="text-center">Margins</h2>
 		<div class="f-scale-space">
 			<ul class="f-scale-space__list">
 				<li class="f-scale-space__text">
@@ -173,22 +170,22 @@
 				<li class="f-scale-space__preview" style="width: var(--space-8xl)"></li>
 			</ul>
 		</div>
-		<!-- Заголовки -->
-		<h2 class="text-center">Заголовки</h2>
+
+		<h2 class="text-center">Titles</h2>
 		<div class="row">
 			<div class="col-7">
 				<div class="row-cols-1">
-					<h1>Заголовок H1</h1>
-					<h2>Заголовок H2</h2>
-					<h3>Заголовок H3</h3>
-					<h4>Заголовок H4</h4>
-					<h5>Заголовок H5</h5>
-					<h6>Заголовок H6</h6>
+					<h1>Title H1</h1>
+					<h2>Title H2</h2>
+					<h3>Title H3</h3>
+					<h4>Title H4</h4>
+					<h5>Title H5</h5>
+					<h6>Title H6</h6>
 				</div>
 			</div>
 		</div>
 		<!-- BUTTON -->
-		<h2 class="text-center">Кнопки</h2>
+		<h2 class="text-center">Buttons</h2>
 		<div class="row">
 			<div class="col-7">
 				<div class="row-cols-1">
@@ -200,7 +197,7 @@
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
 									</svg>
 								</span>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 							</button>
 							<button class="btn btn--style_bg" data-component>
 								<span class="btn__icon icon icon icon--orientation_top">
@@ -208,10 +205,10 @@
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
 									</svg>
 								</span>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 							</button>
 							<button class="btn btn--style_border" data-component>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 								<span class="btn__icon icon">
 									<svg aria-hidden="true">
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
@@ -240,7 +237,7 @@
 								</span>
 							</button>
 							<button class="btn btn--style_link" data-component>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 								<span class="btn__icon icon icon icon--orientation_right">
 									<svg aria-hidden="true">
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
@@ -248,7 +245,7 @@
 								</span>
 							</button>
 							<button class="btn btn--style_link-2" data-component>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 								<span class="btn__icon icon">
 									<svg aria-hidden="true">
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
@@ -256,14 +253,14 @@
 								</span>
 							</button>
 							<button class="btn btn--style_link-3" data-component>
-								<span class="btn__value">Кнопка</span>
+								<span class="btn__value">Button</span>
 								<span class="btn__icon icon">
 									<svg aria-hidden="true">
 										<use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
 									</svg>
 								</span>
 							</button>
-							<a href="#">Ссылка</a>
+							<a href="#">link</a>
 						</div>
 					</div>
 				</div>
@@ -275,18 +272,18 @@
 			</pre></div>
 		</div>
 		<!-- INPUT -->
-		<h2 class="text-center">Поля ввода</h2>
+		<h2 class="text-center">input</h2>
 		<div class="row">
 			<div class="col-7">
 				<div class="row-cols-1">
 					<div class="field">
-						<div class="field__title">Ф.И.О</div>
+						<div class="field__title">Lorem</div>
 						<div class="field__inner">
-							<input type="text" name="firstName" placeholder="Введите Ф.И.О">
+							<input type="text" name="firstName" placeholder="Lorem">
 						</div>
 						<div class="field__message">
 							<div class="field__message-text">
-								Дополнительный текст
+								text
 							</div>
 						</div>
 					</div>
@@ -298,7 +295,7 @@
 			</pre></div>
 		</div>
 		<!-- TABLE -->
-		<h2 class="text-center">Таблицы</h2>
+		<h2 class="text-center">table</h2>
 		<div class="row">
 			<div class="col-7">
 				<div class="row-cols-1">
@@ -390,7 +387,7 @@
 
 	<script>
 		for (const component of document.querySelectorAll('[data-component]')) {
-			component.setAttribute('uk-tooltip', "Скопировать html");
+			component.setAttribute('uk-tooltip', "Copy html");
 		}
 
 		document.addEventListener('click', function(e) { 
@@ -402,7 +399,7 @@
 				navigator.clipboard.writeText(copyElem.outerHTML);
 
 				UIkit.notification({
-					message: 'Html компонента скопирован',
+					message: 'The html of the component is copied',
 					status: 'primary',
 					pos: 'top-right',
 					timeout: 5000

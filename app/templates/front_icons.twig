@@ -1,4 +1,4 @@
-{% set title = "Иконки" %}
+{% set title = "Icons" %}
 {% extends "layouts/front.twig" %}
 
 {% block style %}
@@ -38,7 +38,7 @@
 					</svg>`);
 
 					UIkit.notification({
-					message: 'Спрайт иконки скопирован',
+					message: 'Icon sprite copied',
 					status: 'primary',
 					pos: 'top-right',
 					timeout: 5000
@@ -48,7 +48,7 @@
 				navigator.clipboard.writeText(svg.outerHTML);
 
 				UIkit.notification({
-					message: 'Код svg иконки скопирован',
+					message: 'SVG icon code copied',
 					status: 'primary',
 					pos: 'top-right',
 					timeout: 5000

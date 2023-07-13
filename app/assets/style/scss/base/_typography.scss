@@ -1,27 +1,11 @@
 /*==================== TYPOGRAPHY ====================*/
 :root {
-	--fz-h1: 64px;
-	--fz-h2: 56px;
-	--fz-h3: 32px;
-	--fz-h4: 24px;
-	--fz-h5: 20px;
+	--fz-h1: 40px;
+	--fz-h2: 32px;
+	--fz-h3: 20px;
+	--fz-h4: 18px;
+	--fz-h5: 26px;
 	--fz-h6: 18px;
-
-	@include media(xl) {
-		--fz-h1: 56px;
-		--fz-h2: 48px;
-		--fz-h3: 28px;
-		--fz-h4: 22px;
-		--fz-h5: 18px;
-		--fz-h6: 16px;
-	}
-
-	@include media(lg) {
-		--fz-h1: 40px;
-		--fz-h2: 36px;
-		--fz-h3: 26px;
-		--fz-h4: 20px;
-	}
 	
 	@include media(sm) {
 		--fz-h1: 24px;
@@ -178,6 +162,7 @@ b {
 	text-decoration: underline;
 	color: var(--color-base);
   
+	&.active,
 	&:hover {
 		text-decoration: none;
 	}
@@ -188,6 +173,7 @@ b {
 		border-bottom: 1px dashed currentColor;
 		transition: border-color $duration;
 
+		&.active,
 		&:hover {
 			border-color: transparent
 		}
@@ -199,6 +185,7 @@ b {
 		border-bottom: 2px solid var(--color-base);
 		transition: all $duration;
 
+		&.active,
 		&:hover {
 			border-color: transparent;
 		}
@@ -211,10 +198,11 @@ b {
 		background-size: 200% 1px;
 		background-repeat: no-repeat;
 		background-position: 100% 100%;
-		transition: background-position 0.2s;
+		transition: background-position $duration, color $duration;
 	
+		&.active,
 		&:hover {
-			color: var(--color-base);
+			color: var(--color-base) !important;
 			background-position: 0% 100%;
 		}
 	}

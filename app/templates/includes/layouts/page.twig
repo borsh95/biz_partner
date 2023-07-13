@@ -12,7 +12,6 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="ArtBro">
 	<title>{{ page.title.text ?? 'Page' }}</title>
 	<!-- uikit css -->
 	<link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
@@ -22,7 +21,6 @@
 	<link rel="stylesheet" href="assets/style/style.css">
 	{# ------ SCRIPTS ----- #}
 	{% block scripts %}
-		<script defer src="https://api-maps.yandex.ru/2.1/?apikey=b5e0936b-e237-4800-b700-849c633773b1&lang=ru_RU"></script>
 		<!-- jquery -->
 		<script src="assets/vendors/jquery/jquery.min.js" defer></script>
 		<!-- jquery event move -->
@@ -73,6 +71,82 @@
 	{% block footer %}
 		{% include "&/footer.twig" %}
 	{% endblock %}
+
+	<div id="callback_modal" class="modal modal--width_m" uk-modal>
+		<div class="uk-modal-dialog uk-margin-auto-vertical">
+			<button class="modal__close uk-modal-close-default" type="button" uk-close></button>
+			<div class="modal__body uk-modal-body">
+				<div class="modal__content">
+					<h3 class="mb-3xs title title--marked title--indet">Book a consultation</h3>
+					<!-- form -->
+					<form action="#" class="form">
+						<div class="form__conten gy--items_m">
+							<div class="field-block">
+								<div class="field-block__list gy-xxs">
+									<!-- field -->
+									<div class="field">
+										<div class="field__content">
+											<div class="input">
+												<input type="text" required="" placeholder=" ">
+												<span class="input__placeholder">Name</span>
+											</div>
+										</div>
+									</div>
+									<!-- field -->
+									<div class="field">
+										<div class="field__content">
+											<div class="input">
+												<input type="tel" required="" placeholder=" ">
+												<span class="input__placeholder">Phone</span>
+											</div>
+										</div>
+									</div>
+									<!-- field -->
+									<div class="field">
+										<div class="field__content">
+											<div class="input">
+												<input type="email" required="" placeholder=" ">
+												<span class="input__placeholder">Email address</span>
+											</div>
+										</div>
+									</div>
+									<!-- field -->
+									<div class="field">
+										<div class="field__content">
+											<div class="input">
+												<textarea placeholder=" "></textarea>
+												<span class="input__placeholder">Message</span>
+											</div>
+										</div>
+									</div>
+									<!-- field -->
+									<div class="mt-5xs field">
+										<div class="field__content">
+											<label class="input">
+												<input type="checkbox" checked="">
+												<span class="mt-0 fz-16 input__text">I agree of the processing of personal data</span>
+												<span class="input__control">
+													<span class="icon">
+														<svg aria-hidden="true">
+															<use xlink:href="assets/img/icons/sprite/sprite.svg#check"></use>
+														</svg>
+													</span>
+												</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="w-sm-100% btn btn--style_bg btn--min-width" type="submit">
+								<span class="btn__value">Send</span>
+							</button>
+						</div>
+					</form>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	{# ------ COMMON ----- #}
 	{% block common %}{% endblock %}

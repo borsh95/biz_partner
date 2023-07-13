@@ -162,7 +162,6 @@ const Options = (() => {
                 this.updateState();
                 this.updateView();
 
-                // Фильтрация списка item options
                 if ($target.is(this.$inputSearch)) {
                     this.filterBySearch();
                 }
