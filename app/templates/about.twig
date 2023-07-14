@@ -3,15 +3,13 @@
 {% block content %}	
 	<div class="sketch">
 		<div class="sketch__bg sketch__bg sketch__bg--oblique-filling-page"></div>
-		<figure class="sketch__bg sketch__bg--abstraction-1" role="presentation">
+		<figure id="apsb_1" class="sketch__bg sketch__bg--abstraction-1" role="presentation">
 			<picture>
 				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
 				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
 			</picture>
 		</figure>
-		<figure class="sketch__bg sketch__bg--pos_left-bottom" role="presentation" 
-			style="bottom: -160px; max-width: 816px; transform: translateX(-62%)"
-		>
+		<figure id="apsb_2" class="sketch__bg sketch__bg--pos_left-bottom" role="presentation">
 			<picture>
 				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
 				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
@@ -62,23 +60,29 @@
 								<img class="mx-md-auto" src="./assets/img/content/gerl.jpg" loading="lazy" alt="">
 							</figure>
 						</div>
-						<div class="desc-item__content content content--loose">
-							<h4>
-								We also offer additional services to our clients, which include
-							</h4>
-							<ul>
-								<li>registration of licenses, certificates and other permits</li>
-								<li>registration of all types of residence cards (residence permits) in Poland</li>
-								<li>servicing investments in Poland</li>
-								<li>support of transactions for the purchase of business and commercial real estate</li>
-							</ul>
-							<h4>
-								We work with medium and large businesses in Poland
-							</h4>
-							<p>
-								Our clients are famous brands.
-								By entrusting your bookkeeping to us, you can easily deal with other processes without burdening yourself with unnecessary problems.
-							</p>
+						<div class="desc-item__content">
+							<div class="gy--items_xxl gy-sm-l">
+								<div class="content">
+									<h4>
+										We also offer additional services to our clients, which include
+									</h4>
+									<ul>
+										<li>registration of licenses, certificates and other permits</li>
+										<li>registration of all types of residence cards (residence permits) in Poland</li>
+										<li>servicing investments in Poland</li>
+										<li>support of transactions for the purchase of business and commercial real estate</li>
+									</ul>
+								</div>
+								<div class="content">
+									<h4>
+										We work with medium and large businesses in Poland
+									</h4>
+									<p>
+										Our clients are famous brands.
+										By entrusting your bookkeeping to us, you can easily deal with other processes without burdening yourself with unnecessary problems.
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -248,9 +252,7 @@
 	</section>
 
 	<div class="sketch">
-		<figure class="sketch__bg sketch__bg--pos_left-bottom" role="presentation" 
-			style="bottom: -30px; max-width: 73vw; transform: translateX(-69%)"
-		>
+		<figure id="apsb_3" class="sketch__bg sketch__bg--pos_left-bottom" role="presentation">
 			<picture>
 				<source srcset="./assets/img/bg/abstraction-1.webp" type="image/webp">
 				<img src="./assets/img/bg/abstraction-1.png" loading="lazy" alt="">
@@ -259,7 +261,7 @@
 		<div class="sketch__content">
 			<section class="section">
 				<div class="container">
-					<h3 class="mb-3xs title title--marked title--indet">Contact us</h3>
+					<h2 class="mb-3xs title title--marked title--indet">Contact us</h2>
 					<div class="row gx-3xl gy-3xl">
 						<div class="col-6 col-md-12">
 							<!-- form -->
@@ -342,8 +344,8 @@
 								<li class="list-info__item">
 									<p><b>The amount of the authorized capita</b> l as of 01.01.2022 is PLN 400,000.00</p>
 								</li>
-								<li class="list-info__item list-info__item--action">
-									<a href="#">
+								<li class="list-info__item list-info__item--action" uk-lightbox="animation: fade" data-caption="Описание">
+									<a href="./assets/img/test/user-1.jpg">
 										<span class="icon">
 											<svg aria-hidden="true">
 												<use xlink:href="assets/img/icons/sprite/sprite.svg#doc"></use>
@@ -351,6 +353,11 @@
 										</span>
 										<span>Check our certificates</span>
 									</a>
+									<div class="sr-only" aria-hidden="true">
+										<a href="./assets/img/test/user-2.jpg"></a>
+										<a href="./assets/img/test/user-3.jpg"></a>
+										<a href="./assets/img/test/user-4.jpg"></a>
+									</div>
 								</li>
 							</ul>					
 						</div>
