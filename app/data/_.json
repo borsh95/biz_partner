@@ -8,8 +8,8 @@
 				},
 				"submenu": {
 					"items": [{
+						"active": true,
 						"link": {
-							"href": "#",
 							"text": "Accounting"
 						},
 						"submenu": {
@@ -41,9 +41,7 @@
 							}]
 						}
 					}, {
-						"active": true,
 						"link": {
-							"href": "#",
 							"text": "Annual reports"
 						},
 						"submenu": {
@@ -58,7 +56,6 @@
 									"text": "Registration"
 								}
 							}, {
-								"active": true,
 								"link": {
 									"href": "#n",
 									"text": "Recovery"
@@ -187,7 +184,6 @@
 					"text": "News"
 				}
 			}, {
-				"active": true,
 				"link": {
 					"href": "#",
 					"text": "Contact"

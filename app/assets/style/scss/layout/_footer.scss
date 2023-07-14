@@ -3,7 +3,7 @@
 	$this: &;
 
 	position: relative;
-	z-index: $z-index-header;
+	z-index: $z-index-header - 1;
 	font-size: rem(20);
 	background-color: var(--color-bg-4);
 	border-top: 1px solid color('base', 0.3);

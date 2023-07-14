@@ -545,7 +545,7 @@
 				}
 
 				#{$this}__slider {
-					overflow: initial
+					overflow: hidden
 				}
 			}
 		}
@@ -571,6 +571,7 @@
 					--offset-x: #{rem(20)};
 					--offset-y: #{rem(20)};
 
+					height: auto !important;
 					width: auto;
 					transform: none !important;
 

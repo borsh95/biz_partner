@@ -103,7 +103,8 @@ for (const sliderEl of document.querySelectorAll('.slider')) {
 			breakpoints: {
 				320: {
 					enabled: true,
-					slidesPerView: 1
+					slidesPerView: 1,
+					spaceBetween: 60	
 				},
 				[window.front.breakpoints.sm]: {
 					enabled: true,
@@ -123,6 +124,7 @@ for (const sliderEl of document.querySelectorAll('.slider')) {
 			watchSlidesVisibility: true,
 			breakpoints: {
 				320: {
+					autoHeight: true,
 					enabled: true,
 					slidesPerView: 1,
 					spaceBetween: 60,	

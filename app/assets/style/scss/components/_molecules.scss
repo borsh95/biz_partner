@@ -154,11 +154,23 @@
 .field-block {
 	&__list {
 		@include row;
+		--offset-y: 15px;
 
 		> * {
 			@include col;
 			@include widthCol(12);
 		}
+	}
+}
+
+.form-subscription {
+	&__title {
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
+
+	@include media(sm) {
+		margin-bottom: 12px;
 	}
 }
 
@@ -237,6 +249,7 @@
 	}
 
 	&__content {
+		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
 		font-size: rem(20);
@@ -275,6 +288,15 @@
 		padding: 15px;
 		flex-direction: column;
 
+		&__img {
+			display: flex;
+			justify-content: center;
+		}
+
+		&__text {
+			font-size: 14px;
+		}
+
 		&__before {
 			margin-bottom: 15px;
 			margin-right: 0;
@@ -283,6 +305,12 @@
 
 		&__btns {
 			padding-top: 25px;
+			
+			.btns__list {
+				> * {
+					flex-grow: 1;
+				}
+			}
 		}
 	}
 }
@@ -373,9 +401,14 @@
 			text-decoration: none;
 		}
 
+		
+
 		&:not([href]) {
 			cursor: text;
-			color: color('base')
+		}
+
+		&:has(.menu__link-arr) {
+			cursor: pointer;
 		}
 
 		&-arr {
@@ -417,7 +450,11 @@
 							transform-origin: left center;
 							transition: transform $duration, opacity 0s;
 						}
+					}
+				}
 
+				&:hover {
+					> #{$this}__link {
 						#{$this}__link-arr {
 							transform: rotate(180deg);
 						}
@@ -429,17 +466,7 @@
 					transition: all 0.25s;
 
 					&:not([href]) {
-						&::before {
-							opacity: 1;
-							transform: scaleX(1);
-							transform-origin: left center;
-							transition: transform $duration, opacity 0s;
-						}
-					}
-
-					&:not([href]) {
 						cursor: text;
-						color: color('base')
 					}
 
 					&:before {
@@ -490,6 +517,7 @@
 				opacity: 0;
 				overflow-y: auto;
 				visibility: hidden;
+				border-bottom: 1px solid var(--color-base);
 				transform: translateY(20px);
 				transition: opacity $duration 0.15s, transform $duration 0.15s, visibility 0s $duration + 0.1;
 			}
@@ -700,6 +728,7 @@
 		&__link {
 			&-arr {
 				pointer-events: none;
+				margin-top: 0.2em;
 			}
 		}
 	}
@@ -730,6 +759,7 @@
 			width: calc(100% - 50px);
 
 			&-arr {
+				cursor: pointer;
 				position: absolute;
 				left: calc(100% + 37px);
 				margin: 0;
@@ -909,6 +939,12 @@
 					transition-property: transform, opacity;
 					transition-duration: $duration;
 				}
+
+				@media (hover: none) {
+					.icon {
+						display: none;
+					}
+				}
 			}
 		}
 	}
@@ -956,6 +992,16 @@
 
 		&__content {
 			min-height: 404px;
+		}
+
+		&__nav {
+			&-item {
+				a {
+					.icon {
+						display: none;
+					}
+				}
+			}
 		}
 	}
 }
@@ -1024,6 +1070,12 @@
 		line-height: calc(36/24);
 	}
 
+	@include media(md, min-width) {
+		&__title {
+			font-size: 24px;
+		}
+	}
+
 	&--size {
 		@include media(md, min-width) {
 			&_xl\@md {
@@ -1054,8 +1106,6 @@
 			}
 		}
 	}
-
-	
 }
 
 .card-record-layout {
@@ -1195,6 +1245,12 @@
 
 		.field-block__list {
 			--offset-y: 14px;
+		}
+
+		.input {
+			&__text {
+				color: #828282
+			}
 		}
 	}
 
@@ -1425,6 +1481,24 @@
 		overflow: hidden;
 		z-index: 0;
 
+		&#apsb_2 {
+			bottom: -160px; 
+			max-width: 816px; 
+			transform: translateX(-62%);
+		}
+
+		&#apsb_3 {
+			bottom: -30px; 
+			max-width: 73vw; 
+			transform: translateX(-69%);
+		}
+
+		&#cbsb_1 {
+			right: 0;
+			max-width: 53vw;
+			bottom: -65px;
+		}
+
 		&--oblique-filling {
 			@at-root [class*="sketch__bg--oblique-filling"] {
 				position: absolute;
@@ -1480,17 +1554,15 @@
 				.sketch__bg--abstraction-2 {
 					right: 235px;
 					left: auto !important;
-					top: auto !important;
-					bottom: 0px;
+					top: 500px !important;
 					width: 720px;
-					max-width: initial !important;
+					max-width: 720px !important;
 
 
-					@include media(sm) {
-						right: 202px !important;
-						bottom: 333px;
+					@include media(sm) {					
+						top: 185px !important;
+						right: 65px !important;
 						width: 383px;
-						max-width: inherit !important;;
 
 						> * {
 							transform: none !important;
@@ -1499,6 +1571,32 @@
 				}
 			}
 
+			&-page-2 {
+				top: -50px;
+				right: 40%;
+				min-height: calc(100vh - var(--header-height) - 5px);
+
+				.img {
+					position: absolute;
+					top: 375px;
+					z-index: -1;
+					right: 130px;
+					width: 720px;
+				}
+			}
+
+			@include media(md) {
+				&-page-2 {
+
+					.img {
+						top: 440px;
+						right: 270px;
+						width: 383px;
+					}
+				}
+			}
+
+
 			@include media(sm) {
 				right: 0;
 
@@ -1506,6 +1604,21 @@
 					top: -30px;
 
 					right: 0%;
+				}
+
+				&-page-2 {
+					right: 0;
+					top: -30px;
+
+					&::before {
+						right: -115px;
+					}
+	
+					.img {
+						top: 330px;
+    					right: 65px;
+						width: 383px;
+					}
 				}
 			}
 		}
@@ -1520,6 +1633,14 @@
 				top: 50%;
 				max-width: 55vw;
 				transform: translateY(-50%);
+
+				&#apsb_1 {
+					top: 38%;
+
+					img {
+						transform: translateX(25%);
+					}
+				}
 				
 				> * {
 					transform: translateX(36%);
@@ -1529,6 +1650,14 @@
 					top: 0;				
 					max-width: 90vw;
 					transform: none;
+
+					&#apsb_1 {
+						top: 40%;
+	
+						img {
+							transform: translateX(68%);
+						}
+					}
 					
 					> * {
 						transform: translate(5%, 0);
@@ -1538,7 +1667,7 @@
 
 			&-2 {
 				&:nth-child(1) {
-					left: -32%;
+					left: -40%;
 					top: 40px;
 					max-width: 55vw;
 				}
@@ -1546,17 +1675,15 @@
 				&:nth-child(2) {
 					bottom: -60px;
 					right: 0;
+					max-width: 50vw;
 					
-					> * {
+					img {
 						transform: translate(56%, 0);
 					}
 				}
 
 				.sketch__bg--oblique-filling-page ~ & {
 					transform: translateY(41%);
-					> * {
-						transform: translateX(32%);
-					}
 				}
 
 				@include media(sm) {
@@ -1592,6 +1719,39 @@
 
 	&__content {
 		position: relative;
+	}
+
+	@include media(xl) {
+		&__bg {
+			&#apsb_2 {
+				bottom: -50px; 
+			}
+		}
+	}
+
+	@include media(md) {
+		&__bg {
+			&#apsb_3 {
+				transform: translateX(-85%);
+			}
+		}
+	}
+
+	@include media(sm) {
+		&__bg {
+			&#apsb_2 {
+				bottom: -35px; 
+				transform: translateX(-86%);
+			}
+
+			&#apsb_2 {
+				bottom: -45px;
+			}
+
+			&#apsb_3 {
+				bottom: -15px;
+			}
+		}
 	}
 }
 
@@ -1684,6 +1844,10 @@
 
 	> * {
 		margin-bottom: rem(24);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 

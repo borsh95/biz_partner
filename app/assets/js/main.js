@@ -317,7 +317,8 @@ try {
         breakpoints: (_breakpoints6 = {
           320: {
             enabled: true,
-            slidesPerView: 1
+            slidesPerView: 1,
+            spaceBetween: 60
           }
         }, _defineProperty(_breakpoints6, window.front.breakpoints.sm, {
           enabled: true,
@@ -335,6 +336,7 @@ try {
         watchSlidesVisibility: true,
         breakpoints: _defineProperty({
           320: {
+            autoHeight: true,
             enabled: true,
             slidesPerView: 1,
             spaceBetween: 60
@@ -496,6 +498,7 @@ window.addEventListener('DOMContentLoaded', function () {
       var focusedField = document.querySelector('.field.focussed');
       if (fieldEl) {
         var selectEl = e.target.closest('.select');
+        if (!selectEl) return;
         var isActiveSelect = selectEl.classList.contains('active');
         fieldEl.classList.toggle('focussed', isActiveSelect);
         setTimeout(function () {
@@ -580,8 +583,11 @@ window.addEventListener('DOMContentLoaded', function () {
       setHeightItem();
     });
   });
-  $(document).on('click', '.menu__link-arr', function (e) {
-    $(this).closest('li').toggleClass('open').find('.menu__submenu').first().slideToggle(200);
+  $(document).on('click', '.menu__link', function (e) {
+    if (e.target.closest('.menu__link-arr') || !this.hasAttribute('href')) {
+      e.preventDefault();
+      $(this).closest('li').toggleClass('open').find('.menu__submenu').first().slideToggle(200);
+    }
   });
 });
 },{"./base":1,"./chunks":6,"./utils/utils":11}],10:[function(require,module,exports){

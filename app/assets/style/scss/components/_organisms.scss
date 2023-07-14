@@ -102,17 +102,21 @@
 	}
 
 	&--style_2 {
-		#{$this}__container {	
-			min-height: calc(100vh - var(--header-height));
-		}
-
 		#{$this}__content {
 			padding-left: 50px;
 			//min-height: 773px;
 		}
+		
+		@include media(md, min-width) {
+			#{$this}__container {	
+				min-height: calc(100vh - var(--header-height));
+			}
+		}
 
-		#{$this}__text {
-			max-width: 57%;
+		@include media(sm, min-width) {
+			#{$this}__text {
+				max-width: 57%;
+			}
 		}
 	}
 
@@ -203,11 +207,19 @@
 			.breadcrumbs ~ & {
 				padding-top: 16px;
 			}
+
+			.btns__list > * {
+				flex-grow: 1;
+			}
+		}
+
+		&__text {
+			max-width: initial;
 		}
 
 		&__bg {
 			@at-root [class*="anzeige-welcom__bg--pos"] {
-				margin-top: -35px;
+				margin-top: -25px;
 				max-width: 400px
 			}
 
@@ -227,18 +239,6 @@
 			display: none;
 		}
 	}
-
-	@include media(xs) {
-		&__content {
-			.btns__list > * {
-				flex-grow: 1;
-			}
-		}
-
-		&__text {
-			max-width: initial;
-		}
-	}
 }
 
 /* contacts b */
@@ -252,15 +252,31 @@
 		}
 	}
 
+	.item {
+		font-size: 20px;
+
+		&__icon {
+			margin-right: 11px;
+			width: 26px;
+			height: 26px;
+		}
+	}
+
 	hr {
 		max-width: 356px;
 	}
 
-	> *:not(.item) {
-		margin-left: 28px;
+	@include media(md, min-width) {
+		> *:not(.item) {
+			margin-left: 28px;
+		}
 	}
 
 	@include media(md) {
+		.item {
+			font-size: 16px;
+		}
+
 		> * {
 			margin-bottom: 30px;
 

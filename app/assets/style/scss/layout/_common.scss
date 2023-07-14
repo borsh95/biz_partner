@@ -113,6 +113,20 @@
 	&__bg {
 		position: absolute;
 
+		&#spsb_1 {
+			@include media(md) {
+				top: 65px;
+				left: 110%;
+				bottom: 70px;
+				height: auto;
+			}
+		}
+
+		&#spsb_2 {
+			max-width: 960px;
+			transform: translateX(-50%);
+		}
+
 		&--oblique-filling {
 			@at-root [class*="section__bg--oblique-filling"] {
 				position: absolute;

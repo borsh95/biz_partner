@@ -103,6 +103,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
 			if (fieldEl) {
 				const selectEl = e.target.closest('.select');
+				
+				if (!selectEl) return;
+
 				const isActiveSelect = selectEl.classList.contains('active')
 
 				fieldEl.classList.toggle('focussed', isActiveSelect);
@@ -206,10 +209,17 @@ window.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	$(document).on('click', '.menu__link-arr', function (e) {
-		$(this).closest('li')
+	$(document).on('click', '.menu__link', function (e) {
+		if (
+			e.target.closest('.menu__link-arr') ||
+			!this.hasAttribute('href')
+		) {
+			e.preventDefault();
+			
+			$(this).closest('li')
 			.toggleClass('open')
 			.find('.menu__submenu').first()
 			.slideToggle(200);
+		}
 	});
 });

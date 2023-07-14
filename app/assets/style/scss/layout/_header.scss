@@ -47,6 +47,20 @@
 		display: inline-flex;
 		align-items: center;
 		font-size: 18px;
+
+		&.active {
+			.for-close {
+				display: block;
+			}
+
+			.for-open {
+				display: none;
+			}
+		}
+
+		.for-close {
+			display: none;
+		}
 		
 		.hamburger {
 			--hamburger-width-line: 19px;

@@ -399,9 +399,8 @@
     &__text {
         cursor: pointer;
         display: inline-block;
-		margin-top: 0.4em;
-        margin-left: 10px;
-        font-size: rem(12);
+        margin-left: em(12, 16);
+        font-size: 16px;
         line-height: 1.2;
         transition: all $duration;
 
@@ -508,6 +507,13 @@
 			}
 		}
 	}
+
+    @include media(sm) {
+        &__text {
+            margin-top: 0.15em;
+            font-size: 14px;
+        }
+    }
 }
 
 .options {
@@ -1205,11 +1211,11 @@
 	}
 
 	&__title:first-child {
-		margin-top: -0.15em;
+		margin-top: -0.125em;
 	}
 
 	&__title {
-		margin-bottom: em(19, 32); 
+		margin-bottom: em(18, 32); 
 	}
 
 	&--work {
@@ -1222,7 +1228,11 @@
 
 	@include media(sm) {
 		&__title {
-			margin-bottom: 0
+			margin-bottom: 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
 		}
 	}
 }

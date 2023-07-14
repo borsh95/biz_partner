@@ -1,11 +1,16 @@
 /*==================== TYPOGRAPHY ====================*/
 :root {
-	--fz-h1: 40px;
-	--fz-h2: 32px;
-	--fz-h3: 20px;
-	--fz-h4: 18px;
-	--fz-h5: 26px;
+	--fz-h1: 64px;
+	--fz-h2: 56px;
+	--fz-h3: 32px;
+	--fz-h4: 24px;
+	--fz-h5: 20px;
 	--fz-h6: 18px;
+
+	@include media(xl) {
+		--fz-h1: 50px;	
+		--fz-h2: 42px;
+	}
 	
 	@include media(sm) {
 		--fz-h1: 24px;
@@ -142,6 +147,10 @@ blockquote {
 			padding-left: 0.9em;
 		}
 	}
+}
+
+em {
+	color: inherit;
 }
 
 fieldset {
