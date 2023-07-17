@@ -99,10 +99,10 @@ figure {
 
 ul,
 ol {
-	padding-left: 1.9em;
+	padding-left: 0.7em;
 
 	@at-root li {
-		list-style-type: disc;
+		list-style-type: "• ";
 		list-style-position: inherit;
 		margin-bottom: em(18, 16);
 
@@ -263,6 +263,14 @@ hr {
 .content {
 	$this: &;
 
+	> * {
+		margin-bottom: var(--text-spacing);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
 	h2,
 	.h2,
 	h3,
@@ -271,6 +279,8 @@ hr {
 	.h4,
 	h5,
 	.h5 {
+		margin: em(40, 24) 0 em(20, 24);
+
 		&:first-child {
 			margin-top: 0;
 		}
@@ -309,14 +319,6 @@ hr {
 
 	img {
 		margin: 0 auto;
-	}
-
-	> * {
-		margin-bottom: var(--text-spacing);
-
-		&:last-child {
-			margin-bottom: 0;
-		}
 	}
 
 	@include media(sm) {

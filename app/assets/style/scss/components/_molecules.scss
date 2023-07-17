@@ -190,6 +190,12 @@
 		}
 	}
 
+	&__content {
+		li {
+			margin-bottom: 0;
+		}
+	}
+
 	& + & {
 		margin-top: rem(140);
 	}
