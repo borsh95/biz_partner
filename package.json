@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"tasks": "node tasks",
-		"dev": "gulp"
+		"dev": "gulp",
+		"build": "gulp build"
 	},
 	"keywords": [],
 	"author": "",
