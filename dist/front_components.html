@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="page front-pg" lang="ru">
+
+<head>
+    <item charset="UTF-8">
+        <item name="viewport" content="width=device-width, initial-scale=1.0">
+            <item name="author" content="ArtBro">
+                <title>Page</title>
+                <!-- uikit css -->
+                <link rel="stylesheet" href="assets/vendors/uikit/uikit.min.css">
+                <!-- main css -->
+                <link rel="stylesheet" href="assets/style/style.css">
+                <!-- jquery -->
+                <script src="assets/vendors/jquery/jquery.min.js" defer></script>
+                <!-- jquery event move -->
+                <script src="assets/vendors/jquery/jquery.event.move.js" defer></script>
+                <!-- uikit js -->
+                <script src="assets/vendors/uikit/uikit-icons.min.js" defer></script>
+                <script src="assets/vendors/uikit/uikit.min.js" defer></script>
+                <!-- main -->
+                <script src="assets/js/main.js" defer></script>
+</head>
+
+<body class="page__body">
+    <!-- CONTENT WRAP -->
+    <main class="page__content ">
+        <div class="container">
+            <label class="field field-checkbox">
+                <div class="field__inner">
+                    <input class="js-toggler-theme" type="checkbox">
+                    <span class="field__mark"></span>
+                    <span class="field__text">Enable Dark theme</span>
+                </div>
+            </label>
+            <h2 class="text-center">General</h2>
+            <h2 class="text-center">Colors</h2>
+            <div class="f-colors">
+                <ul class="f-colors__list">
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-base)" style="background: var(--color-base)"></div>
+                        <div class="f-colors__title">base</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-base-2)" style="background: var(--color-base-2)"></div>
+                        <div class="f-colors__title">base-2</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-default)" style="background: var(--color-default)"></div>
+                        <div class="f-colors__title">default</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-black)" style="background: var(--color-black)"></div>
+                        <div class="f-colors__title">black</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-white)" style="background: var(--color-white)"></div>
+                        <div class="f-colors__title">white</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-gray)" style="background: var(--color-gray)"></div>
+                        <div class="f-colors__title">gray</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-green)" style="background: var(--color-green)"></div>
+                        <div class="f-colors__title">green</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-orange)" style="background: var(--color-orange)"></div>
+                        <div class="f-colors__title">orange</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-red)" style="background: var(--color-red)"></div>
+                        <div class="f-colors__title">red</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-title)" style="background: var(--color-title)"></div>
+                        <div class="f-colors__title">title</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-txt)" style="background: var(--color-txt)"></div>
+                        <div class="f-colors__title">txt</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-txt-2)" style="background: var(--color-txt-2)"></div>
+                        <div class="f-colors__title">txt-2</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-txt-3)" style="background: var(--color-txt-3)"></div>
+                        <div class="f-colors__title">txt-3</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-border)" style="background: var(--color-border)"></div>
+                        <div class="f-colors__title">border</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-bg)" style="background: var(--color-bg)"></div>
+                        <div class="f-colors__title">bg</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-bg-2)" style="background: var(--color-bg-2)"></div>
+                        <div class="f-colors__title">bg-2</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-bg-card)" style="background: var(--color-bg-card)"></div>
+                        <div class="f-colors__title">bg-card</div>
+                    </li>
+                    <li class="f-colors__item">
+                        <div class="f-colors__color" uk-tooltip="Click to copy" data-copy="var(--color-link)" style="background: var(--color-link)"></div>
+                        <div class="f-colors__title">link</div>
+                    </li>
+                </ul>
+            </div>
+            <h2 class="text-center">Margins</h2>
+            <div class="f-scale-space">
+                <ul class="f-scale-space__list">
+                    <li class="f-scale-space__text"> --space-5xs <small>4px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-5xs)"></li>
+                    <li class="f-scale-space__text"> --space-4xs <small>8px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-4xs)"></li>
+                    <li class="f-scale-space__text"> --space-3xs <small>12px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-3xs)"></li>
+                    <li class="f-scale-space__text"> --space-xxs <small>16px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-xxs)"></li>
+                    <li class="f-scale-space__text"> --space-xs <small>20px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-xs)"></li>
+                    <li class="f-scale-space__text"> --space-s <small>24px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-s)"></li>
+                    <li class="f-scale-space__text"> --space-m <small>28px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-m)"></li>
+                    <li class="f-scale-space__text"> --space-l <small>32px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-l)"></li>
+                    <li class="f-scale-space__text"> --space-sl <small>36px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-xl)"></li>
+                    <li class="f-scale-space__text"> --space-xxl <small>40px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-xxl)"></li>
+                    <li class="f-scale-space__text"> --space-3xl <small>48px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-3xl)"></li>
+                    <li class="f-scale-space__text"> --space-4xl <small>60x</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-4xl)"></li>
+                    <li class="f-scale-space__text"> --space-5xl <small>74px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-5xl)"></li>
+                    <li class="f-scale-space__text"> --space-6xl <small>96px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-6xl)"></li>
+                    <li class="f-scale-space__text"> --space-7xl <small>120px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-7xl)"></li>
+                    <li class="f-scale-space__text"> --space-8xl <small>148px</small>
+                    </li>
+                    <li class="f-scale-space__preview" style="width: var(--space-8xl)"></li>
+                </ul>
+            </div>
+            <h2 class="text-center">Titles</h2>
+            <div class="row">
+                <div class="col-7">
+                    <div class="row-cols-1">
+                        <h1>Title H1</h1>
+                        <h2>Title H2</h2>
+                        <h3>Title H3</h3>
+                        <h4>Title H4</h4>
+                        <h5>Title H5</h5>
+                        <h6>Title H6</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- BUTTON -->
+            <h2 class="text-center">Buttons</h2>
+            <div class="row">
+                <div class="col-7">
+                    <div class="row-cols-1">
+                        <div class="btns">
+                            <div class="btns__list align-items-end">
+                                <button class="btn btn--style_bg" data-component>
+                                    <span class="btn__icon icon icon icon--orientation_top">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="btn__value">Button</span>
+                                </button>
+                                <button class="btn btn--style_bg" data-component>
+                                    <span class="btn__icon icon icon icon--orientation_top">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="btn__value">Button</span>
+                                </button>
+                                <button class="btn btn--style_border" data-component>
+                                    <span class="btn__value">Button</span>
+                                    <span class="btn__icon icon">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--type_icon btn--style_bg" data-component>
+                                    <span class="btn__icon icon icon icon--orientation_left">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--type_icon btn--style_border" data-component>
+                                    <span class="btn__icon icon icon icon--orientation_right">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--type_icon btn--style_bg_transparent" data-component>
+                                    <span class="btn__icon icon icon icon--orientation_right">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--style_link" data-component>
+                                    <span class="btn__value">Button</span>
+                                    <span class="btn__icon icon icon icon--orientation_right">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--style_link-2" data-component>
+                                    <span class="btn__value">Button</span>
+                                    <span class="btn__icon icon">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <button class="btn btn--style_link-3" data-component>
+                                    <span class="btn__value">Button</span>
+                                    <span class="btn__icon icon">
+                                        <svg aria-hidden="true">
+                                            <use xlink:href="assets/img/icons/sprite/sprite.svg#chevron"></use>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <a href="#">link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <pre>
+				<p class="text-center"><b>btn</b></p>
+				<p>size: <b>xl, xxl</b></p>
+				<p>effect: <b>ripple</b></p>
+			</pre>
+                </div>
+            </div>
+            <!-- INPUT -->
+            <h2 class="text-center">input</h2>
+            <div class="row">
+                <div class="col-7">
+                    <div class="row-cols-1">
+                        <div class="field">
+                            <div class="field__title">Lorem</div>
+                            <div class="field__inner">
+                                <input type="text" name="firstName" placeholder="Lorem">
+                            </div>
+                            <div class="field__message">
+                                <div class="field__message-text"> text </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <pre>
+				<p class="text-center"><b>input</b></p>
+				<p>size: <b>m, xl</b></p>
+			</pre>
+                </div>
+            </div>
+            <!-- TABLE -->
+            <h2 class="text-center">table</h2>
+            <div class="row">
+                <div class="col-7">
+                    <div class="row-cols-1">
+                        <div class="table-wrap" data-component>
+                            <table class="table table table--style_default table--bg_blue@lg table--bg_tomato@sm">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">class="table"</th>
+                                    </tr>
+                                    <tr>
+                                        <th>thead th</th>
+                                        <th>thead th</th>
+                                        <th>thead th</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td>tfoot td</td>
+                                        <td>tfoot td</td>
+                                        <td>tfoot td</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="table-wrap" data-component>
+                            <table class="table table--style_zebra table--bg_tomato@lg table--bg_blue@sm">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">class="table"</th>
+                                    </tr>
+                                    <tr>
+                                        <th>thead th</th>
+                                        <th>thead th</th>
+                                        <th>thead th</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                        <td>tbody td</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <pre>
+				<p class="text-center"><b>table</b></p>
+				<p>style: <b>default, zebra</b></p>
+			</pre>
+                </div>
+            </div>
+        </div>
+        <style>
+            pre {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+        <script>
+            for (const component of document.querySelectorAll('[data-component]')) {
+                component.setAttribute('uk-tooltip', "Copy html");
+            }
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('[data-component]')) {
+                    const elem = e.target.closest('[data-component]');
+                    const copyElem = elem.cloneNode(true);
+                    ['uk-tooltip', 'data-component', 'aria-expanded', 'title'].forEach(attr => copyElem.removeAttribute(attr));
+                    navigator.clipboard.writeText(copyElem.outerHTML);
+                    UIkit.notification({
+                        message: 'The html of the component is copied',
+                        status: 'primary',
+                        pos: 'top-right',
+                        timeout: 5000
+                    });
+                }
+            })
+        </script>
+    </main>
+</body>
+
+</html>
